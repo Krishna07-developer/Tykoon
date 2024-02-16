@@ -1,0 +1,62 @@
+{
+  "name": "Tykoon",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^5.6.0",
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/core": "^5.6.0",
+    "@capacitor/ios": "^5.6.0",
+    "@capacitor/preferences": "^5.0.6",
+    "@capgo/capacitor-updater": "4.17.11",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.3",
+    "@mui/material": "^5.15.2",
+    "@mui/x-date-pickers": "^6.19.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "dayjs": "^1.11.10",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "react": "^18.2.0",
+    "react-color-palette": "^7.1.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.2",
+    "react-icons": "^5.0.1",
+    "react-player": "^2.14.1",
+    "react-router-dom": "^6.21.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "env-cmd -f .env.development react-scripts start",
+    "build": "env-cmd -f .env.development npm run build && cp sitemap.xml build/ && cp .htaccess build/",
+    "start:prod": "env-cmd -f .env.production react-scripts start && cp sitemap.xml build/ && cp .htaccess build/",
+    "build:prod": "env-cmd -f .env.production react-scripts build && cp sitemap.xml build/ && cp .htaccess build/",
+    "build:stage": "env-cmd -f .env.development react-scripts build && cp sitemap.xml build/ && cp .htaccess build/"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.6.0",
+    "env-cmd": "^10.1.0"
+  }
+}

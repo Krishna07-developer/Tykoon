@@ -1,0 +1,9 @@
+{
+  "appId": "com.brandorigin.tykoon.ai",
+  "appName": "Tykoon",
+  "webDir": "build",
+  "server": {
+    "hostname": "tykoon.io",
+    "androidScheme": "https"
+}
+}

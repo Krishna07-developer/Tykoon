@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Riveruta";
+  background:'#f2fcff'
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  font-size: 25px;
+  color: orange;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: lighter;
+  color: #058cdb;
+}
+
+b {
+  font-weight: lighter;
+}
+
+.nav-ic {
+  width: 20px;
+}
+
+@font-face {
+  font-family: "Riveruta";
+  src: local("Riveruta"),
+    url("./fonts/riveruta-medium.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Riveruta";
+  src: local("Riveruta"),
+    url("./fonts/riveruta-medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Riveruta";
+  src: local("Riveruta"),
+    url("./fonts/riveruta-bold.ttf") format("truetype");
+  font-weight: 100;
+}
+
+::-webkit-scrollbar {
+  width: 0; 
+}
+
+.rcp-saturation {
+  display: none;
+}
+
+.rcp-body {
+  background: white;
+  padding: 0px 10px !important;
+}
+
+.MuiBox-root .css-149kwm6{
+  padding: 0 !important;
+  overflow-x: unset !important;
+  overflow-y: unset !important;
+  max-height: none !important;
+  margin-left: -11px;
+}
