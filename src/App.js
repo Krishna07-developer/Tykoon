@@ -6,7 +6,7 @@ import { ThemeProvider,
         }                          from '@mui/material/styles'
 import Layout from './Layout'
 import { Routes, Route, BrowserRouter as Router, useLocation } from 'react-router-dom'
-// import Home from './pages/Home'
+import Home from './pages/Home'
 import { CommonProvider } from './contexts/CommonContext'
 import Loader from './components/Loader'
 import Authentication from './pages/Authentication'
@@ -39,7 +39,7 @@ import { CapacitorUpdater } from '@capgo/capacitor-updater'
 import Themes from './pages/Themes'
 import ViewTasks from './pages/ViewTasks'
 import GenerateQuotation from './pages/GenerateQuotation'
-import Theme7 from './card-themes/Theme7.jsx'
+import Theme7 from './card-themes/Theme7'
 
 const theme = createTheme({
   palette: {
@@ -131,7 +131,7 @@ function App() {
               <Route element={<RequireAuth />}>      
            
                 <Route element={<Layout />}>
-                  <Route exact path="/" element={<Theme7 />}/>
+                  <Route exact path="/theme7" element={<Theme7 />}/>
                   <Route exact path="/profile" element={<Profile />}/>
                   <Route path="/updatePersonalDetails" element={<UpdatePersonalDetails />}/>
                   <Route path="/updateCompanyDetails" element={<UpdateCompanyDetails />}/>
