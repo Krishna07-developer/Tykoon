@@ -61,7 +61,7 @@ function Authentication(props) {
 
     const { value } = await Preferences.get({ key: 'userId' }) 
     setLoading(false)
-    if (value) navigate("/theme7")
+    if (value) navigate("/home")
   }
 
   const switchLogin = () => {
@@ -141,7 +141,7 @@ function Authentication(props) {
 
   const goToHome = async() => {
     await userLoginSuccessfull(userData)
-    navigate('/theme7')
+    navigate('/home')
   }
 
   return (<>
