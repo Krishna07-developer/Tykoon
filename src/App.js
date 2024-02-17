@@ -131,7 +131,7 @@ function App() {
               <Route element={<RequireAuth />}>      
            
                 <Route element={<Layout />}>
-                  <Route exact path="/theme7" element={<Theme7 />}/>
+                  <Route exact path="/viewCard/:id" element={<ViewCard />}/>
                   <Route exact path="/profile" element={<Profile />}/>
                   <Route path="/updatePersonalDetails" element={<UpdatePersonalDetails />}/>
                   <Route path="/updateCompanyDetails" element={<UpdateCompanyDetails />}/>
@@ -151,7 +151,7 @@ function App() {
                   <Route path="/editPoster" element={<EditPoster />}/>
                   <Route path="/ecommerce" element={<Ecommerce />}/>
                   <Route path="/addEcommProduct" element={<AddEcommProduct />}/>
-                  <Route path="/viewCard/:id" element={<ViewCard />}/>
+                  {/* <Route path="/viewCard/:id" element={<ViewCard />}/> */}
                   <Route path="/themes" element={<Themes />}/>
                   <Route path="/viewTasks" element={<ViewTasks />}/>
                 </Route>
