@@ -43,9 +43,10 @@ const UserCard = styled(Paper)(()=>({
     width : '100%',
     backgroundColor : '#fffac3',
     justifyContent : 'center',
+    fontFamily : ' Teko, sans-serif',
     '@media (max-width : 600px)' : {
       marginTop : '-8vh',
-      marginBottom :'10vh'
+      marginBottom :'10vh',
     }
 }))
 
@@ -245,7 +246,8 @@ aTag : {
     borderBottom : '2px solid #B02020',
     width : 'fit-content',
     paddingBlock : '2vh',
-    color : '#B02020'
+    color : '#B02020',
+    whiteSpace : 'nowrap'
   },
   
   galleryCont: {
@@ -323,7 +325,7 @@ aTag : {
   paymentLabel: {
     fontSize:'18px',
     marginBlock:'10px',
-    fontWeight:'280'
+    fontWeight:'700'
   },
   invitation : {
     display : 'flex',
@@ -464,7 +466,7 @@ const Theme7 = (props) => {
         
         <UserCard>
               <a href="https://statueofequality.org/register/" style={styles.aTag}>
-                <h3 style={{color : '#B02020'}}>Create New Account</h3>
+                <h3 style={{color : '#B02020'}}>REGISTER TO PARTICIPATE</h3>
               </a>
 
             <ProfileDiv>
@@ -634,7 +636,7 @@ const Theme7 = (props) => {
           </Grid>
 
           <Box sx={{marginBlock : '5vh '}}>
-          <h4 style={styles.headerUnderline}>Samatha Kumb 2024 Invitation Links :</h4>
+          <h4 style={styles.headerUnderline}>SAMATHA KUMB 2024 INVITATION LINKS :</h4>
           <Stack>
             <Box sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/02/Samatha-Kumbh-2024-FEB-20-MAR-1.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In English</a></Box>
             <Box sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Telugu.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Telugu</a></Box>
@@ -643,7 +645,7 @@ const Theme7 = (props) => {
          </Box>
 
           <Box sx={isSmallScreen ? mobileStyles.aboutMe: styles.aboutMe}>
-            <h3 style={styles.headerUnderline} id="aboutMe">About Statue Of Equality :</h3>
+            <h3 style={styles.headerUnderline} id="aboutMe">ABOUT STATUE OF EQUALITY :</h3>
             <Box sx={{lineHeight : '1.5'}}>
             The Statue of Equality is a statue of the 11th-century Indian philosopher Ramanuja,
             located on the premises of the Chinna Jeeyar Trust at Muchintal, Ranga Reddy district 
@@ -657,14 +659,21 @@ const Theme7 = (props) => {
           <ReactPlayer url={'https://www.youtube.com/watch?v=QfSMfEodOgM'} controls={false} width={'100%'} pip={true} stopOnUnmount={false}/>
 
           <Box>
-            <h3 style={styles.headerUnderline} id="fountain">Fountain and Laser Show:</h3>
+            <h3 style={styles.headerUnderline} id="fountain">FOUNTAIN AND LASER SHOW :</h3>
             <Box>
               <img src={FountainImg} alt="" width={'100%'}/>
+            </Box>
+            <Box sx={{textAlign : 'center'}}>
+                <h3 style={{color : '#F89E09'}}>LASER SHOW * EVENINGS ONLY *</h3>
+                <h4>Monday to Friday</h4>
+                <p>07:00 pm and 08:00 pm</p>
+                <h4>Saturday and Sunday</h4>
+                <p>6:15 pm, 7:15 pm and 8:15 pm</p>
             </Box>
           </Box>
 
           <Box sx={isSmallScreen && mobileStyles.mobileScreenMargin}>
-            <h3 style={styles.headerUnderline} id="gallery">Photo Gallery :</h3>
+            <h3 style={styles.headerUnderline} id="gallery">PHOTO GALLERY :</h3>
             <Box>
               <h4>SAMATHA KUMBH 2023 HIGHLIGHTS :-</h4>
               <Grid container spacing={2} marginInline={isSmallScreen ? 5 : 0}>
@@ -763,7 +772,7 @@ const Theme7 = (props) => {
 
 
           <Box>
-            <h3 style={styles.headerUnderline}>Timings and Fee :</h3>
+            <h3 style={styles.headerUnderline}>TIMINGS AND FEE :</h3>
             <Stack marginBlock={4}>
               <h4>Timings:</h4>
               <Paper sx={{textAlign : 'center', paddingBlock : '10px'}}>
@@ -792,7 +801,7 @@ const Theme7 = (props) => {
             {
               card.payments ? 
               <Box >
-                <h3 style={styles.headerUnderline} id="payments">Payment Details :</h3>
+                <h3 style={styles.headerUnderline} id="payments">PAYMENT DETAILS :</h3>
                 {
                   card.payments.accounts.map((account, index) => {
                     return <Box key={index} paddingInline={5}>
@@ -840,7 +849,7 @@ const Theme7 = (props) => {
                 <h3>TO MAINTAIN THE SOCIAL AND SPIRITUAL AMBIENCE WITHIN THE COMPLEX,PLEASE FOLLOW THE DRESS CODE</h3>
                 <p>For those who are not appropriately dressed, please contact the office for traditional dresses, available at
                 nominal prices.</p>
-                <p><span style={{color : 'red'}}>Note:</span>Dress code is strictly applicable for all above 5 +years.</p>
+                <p><span style={{color : 'red'}}>Note:</span>Dress code is strictly applicable for all above 5+ years.</p>
               </Stack>
             </Box>
           </Box>

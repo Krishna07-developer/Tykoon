@@ -73,5 +73,9 @@ b {
   overflow-x: unset !important;
   overflow-y: unset !important;
   max-height: none !important;
-  margin-left: -11px;
+  margin-left: -2px;
+}
+
+.css-x9q82l-MuiPaper-root {
+  padding: 2px !important;
 }
