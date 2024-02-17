@@ -39,7 +39,6 @@ import { CapacitorUpdater } from '@capgo/capacitor-updater'
 import Themes from './pages/Themes'
 import ViewTasks from './pages/ViewTasks'
 import GenerateQuotation from './pages/GenerateQuotation'
-import Theme7 from './card-themes/Theme7'
 
 const theme = createTheme({
   palette: {
