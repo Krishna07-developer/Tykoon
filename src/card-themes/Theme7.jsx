@@ -446,7 +446,6 @@ const Theme7 = (props) => {
 
   const isSmallScreen = useMediaQuery('(max-width : 600px)')
   const [minTimeout, setMinTimeout] = useState(false)
-  const [videoStart, setVideoStart] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
