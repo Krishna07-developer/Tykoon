@@ -124,8 +124,8 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route element={<UiHelpers />}>   
               
-              <Route exact path="/" element={<Authentication />}/>
-              <Route exact path="/auth" element={<Authentication />}/>  
+              {/* <Route exact path="/" element={<Authentication />}/>
+              <Route exact path="/auth" element={<Authentication />}/>   */}
               <Route path="/*" element={<Card />} />
 
               <Route element={<RequireAuth />}>      
