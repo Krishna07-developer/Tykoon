@@ -557,11 +557,11 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <ButtonTypeBox>
+            <ButtonTypeBox onClick={()=>openUrl('')}>
               Facebook Page
               <FacebookIcon style={{fontSize : '24px'}}/>
             </ButtonTypeBox>
-            <ButtonTypeBox>
+            <ButtonTypeBox onClick={()=>openUrl('https://t.me/+gnJOlvrMHK0zZGVl')}>
               Telegram Page
               <FaTelegram style={{fontSize : '24px'}}/>
             </ButtonTypeBox>
