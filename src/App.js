@@ -39,7 +39,6 @@ import { CapacitorUpdater } from '@capgo/capacitor-updater'
 import Themes from './pages/Themes'
 import ViewTasks from './pages/ViewTasks'
 import GenerateQuotation from './pages/GenerateQuotation'
-import Theme7 from './card-themes/Theme7'
 
 const theme = createTheme({
   palette: {
@@ -131,7 +130,7 @@ function App() {
               <Route element={<RequireAuth />}>      
            
                 <Route element={<Layout />}>
-                  <Route exact path="/viewCard/:id" element={<ViewCard />}/>
+                  <Route exact path="/home" element={<Home />}/>
                   <Route exact path="/profile" element={<Profile />}/>
                   <Route path="/updatePersonalDetails" element={<UpdatePersonalDetails />}/>
                   <Route path="/updateCompanyDetails" element={<UpdateCompanyDetails />}/>
@@ -151,7 +150,7 @@ function App() {
                   <Route path="/editPoster" element={<EditPoster />}/>
                   <Route path="/ecommerce" element={<Ecommerce />}/>
                   <Route path="/addEcommProduct" element={<AddEcommProduct />}/>
-                  {/* <Route path="/viewCard/:id" element={<ViewCard />}/> */}
+                  <Route path="/viewCard/:id" element={<ViewCard />}/>
                   <Route path="/themes" element={<Themes />}/>
                   <Route path="/viewTasks" element={<ViewTasks />}/>
                 </Route>
