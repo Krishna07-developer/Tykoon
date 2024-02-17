@@ -131,7 +131,7 @@ function App() {
               <Route element={<RequireAuth />}>      
            
                 <Route element={<Layout />}>
-                  <Route exact path="/home" element={<Home/>}/>
+                  <Route exact path="/home" element={<Home />}/>
                   <Route exact path="/profile" element={<Profile />}/>
                   <Route path="/updatePersonalDetails" element={<UpdatePersonalDetails />}/>
                   <Route path="/updateCompanyDetails" element={<UpdateCompanyDetails />}/>
