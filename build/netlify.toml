@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/*"
+to = "/theme7.jsx"
+status = 200
