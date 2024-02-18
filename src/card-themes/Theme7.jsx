@@ -390,8 +390,7 @@ const Theme7 = (props) => {
   const handleClose = () =>setOpen(false)
 
   return (<>
-    {
-      card ? <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', background:'#f2fcff', 
+    <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', background:'#f2fcff', 
                         padding: isDesktop ? '20px' : ''}}> 
       <Box p={2} sx={{ maxWidth:'500px'}}>
         
@@ -772,23 +771,10 @@ const Theme7 = (props) => {
           </Box>
           
         </UserCard>
-        {
-          cartData.totalCount ? 
-          <Fab color="primary" aria-label="add"
-            sx={{position:'sticky', bottom:'20px', left:'100vw'}}
-              onClick={() => showCartModal()}>
-              <Badge badgeContent={cartData.totalCount} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-          </Fab> : null
-        }
       </Box> 
-      </Box>: 
-      <>
-        Card Not Found
-      </>
-    }
+    </Box>
+      
   </>)
 }
 
-export default CardBase(Theme7)
+export default Theme7
