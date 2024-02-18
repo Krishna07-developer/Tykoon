@@ -516,7 +516,7 @@ const Theme7 = (props) => {
                 </a>
             </Grid>
             <Grid item xs={4} md={4}>
-                <a href="#payments" style={styles.aTag} onClick={handleScroll}>
+                <a href="#timings" style={styles.aTag} onClick={handleScroll}>
                     <NavBox>
                       <CardsNav>
                           <MdPayments style={isSmallScreen ? mobileStyles.navIcons: styles.navIcons}/>
@@ -674,7 +674,7 @@ const Theme7 = (props) => {
 
 
           <Box>
-            <HeaderBox style={styles.headerUnderline}>TIMINGS AND FEE :</HeaderBox>
+            <HeaderBox style={styles.headerUnderline} id="timings">TIMINGS AND FEE :</HeaderBox>
             <Stack marginBlock={4}>
               <h4>Timings:</h4>
               <Paper sx={{textAlign : 'center', paddingBlock : '10px'}}>
