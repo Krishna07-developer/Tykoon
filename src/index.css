@@ -69,13 +69,13 @@ b {
 }
 
 .MuiBox-root .css-149kwm6{
-  padding: 0 !important;
+  /* padding: 0 !important; */
   overflow-x: unset !important;
   overflow-y: unset !important;
   max-height: none !important;
-  margin-left: -2px;
+  margin-left: -25px;
 }
 
 .css-x9q82l-MuiPaper-root {
-  padding: 2px !important;
+  /* padding: 2px !important; */
 }

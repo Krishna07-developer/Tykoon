@@ -1,15 +1,6 @@
 import CardBase from "./CardBase"
 import ImageLoader from '../components/ImageLoader'
-import { Button, Box, Paper, Grid, Fab, Badge, Card , useMediaQuery, Stack, Table, TableHead, TableRow, TableCell, TableContainer, TableBody} from '@mui/material'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import LanguageIcon from '@mui/icons-material/Language'
-import CallIcon from '@mui/icons-material/Call'
-import WhatsAppIcon from '@mui/icons-material/WhatsApp'
-import EmailIcon from '@mui/icons-material/Email'
+import { Button, Box, Paper, Grid, Fab, Badge, Card , useMediaQuery, Stack, Table, TableHead, TableRow, TableCell, TableContainer, TableBody, Dialog} from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { FaUserTie } from "react-icons/fa";
 import { LiaIndustrySolid } from "react-icons/lia";
@@ -17,10 +8,6 @@ import { LuStore } from "react-icons/lu";
 import { GrGallery } from "react-icons/gr";
 import { MdPayments } from "react-icons/md";
 import { MdOutlinePermMedia } from "react-icons/md";
-import { IoSendSharp } from "react-icons/io5";
-import { TbBrandBooking } from "react-icons/tb";
-import { FaYoutube } from "react-icons/fa";
-import {  FaBoxArchive, FaTelegram } from "react-icons/fa6";
 import styled from "@emotion/styled"
 import statueOfEquality from "../assets/statueOfEquality.jpg"
 import { MdPictureAsPdf } from "react-icons/md";
@@ -29,6 +16,23 @@ import JeeyarSwami from "../assets/jeeyarswamy.png"
 import { IoTimeOutline } from "react-icons/io5";
 import ReactPlayer from "react-player"
 import { useEffect, useState } from "react"
+import Facebook from "../assets/facebook.png"
+import Twitter from "../assets/twitter.png"
+import Telegram from "../assets/telegram.png"
+import Youtube from "../assets/youtube.png"
+import Whatsup from "../assets/whatsup.png"
+import Instagram from "../assets/instagram.png"
+import Website from "../assets/websiteIcon.png"
+import Call from "../assets/callIcon.png"
+import Email from "../assets/mail.png"
+import Paytm from "../assets/paytm-icon.png"
+import PhonePe from "../assets/phonepe-logo-icon.png"
+import GooglePay from "../assets/google-pay-icon.png"
+import QrCode from "../assets/scan_me_qr_code.jpg"
+import NetBanking from "../assets/net-banking-icon.png"
+import { IoCloseOutline } from "react-icons/io5";
+
+
 
 
 const UserCard = styled(Paper)(()=>({
@@ -41,9 +45,10 @@ const UserCard = styled(Paper)(()=>({
     backgroundPosition : 'top center',
     backgroundRepeat : 'no-repeat',
     width : '100%',
-    backgroundColor : '#fffac3',
+    backgroundColor : '#e1b070',
     justifyContent : 'center',
     fontFamily : ' Teko, sans-serif',
+    padding :'10px',
     '@media (max-width : 600px)' : {
       marginTop : '-8vh',
       marginBottom :'10vh',
@@ -54,11 +59,11 @@ const ProfileDiv = styled(Box)(()=>({
     position : 'relative',
     width : '180px',
     height : '180px',
-    margin : '-3vw 0  3vh 20vw',
+    margin : '-2vh 0  3vh 20vw',
     '@media (max-width : 600px)' : {
       width : '100px',
       height : '100px',
-      margin : '-4vh 0  5vh 60vw',
+      margin : '0vh 0  5vh 60vw',
       
     }
 }))
@@ -69,20 +74,9 @@ const CardsNav = styled(Box)(()=>({
   display : 'flex',
   flexDirection : 'column',
   alignItems : 'center',
-  backgroundColor : '#fd8d4f',
+  backgroundColor : '#d39854',
   position : 'relative',
-  
-  // '&::before' : {
-  //   content : '""',
-  //   position : 'absolute',
-  //   top : '0',
-  //   left : '0',
-  //   borderWidth : '1vw 1.5vw 0 0',
-  //   borderStyle : 'solid',
-  //   borderColor : 'white transparent transparent transparent',
-  //   width : '0',
-  //   zIndex : '1',
-  // },
+  boxShadow : '0 2px 4px black',
   '&:hover' : {
     opacity : '0.5',
     fontSize : '32px'
@@ -108,7 +102,7 @@ const NavBox = styled(Box)(()=>({
   fontWeight : '700',
   flexWrap : 'nowrap',
   cursor : 'pointer',
-  gap : '2px',
+  gap : '5px',
   '&:hover' : {
     fontSize : '16px',
     flexWrap : 'nowrap'
@@ -129,13 +123,24 @@ const ButtonTypeBox = styled(Paper)(()=>({
   gap : '5px',
   padding : '10px',
   cursor : 'pointer',
-  boxShadow : '0 0 10px  black',
+  boxShadow : '2px 1px 4px  black',
   flexWrap : 'nowrap',
-  backgroundColor : '#fd8d4f',
+  backgroundColor : '#d39854',
   color : 'white',
   '@media (max-width : 600px)' : {
     textAlign : 'center'
   }
+}))
+
+
+const HeaderBox = styled(Box)(()=>({
+  background : 'white',
+  boxShadow : '0 2px 4px black',
+  fontFamily : '',
+  padding : '5px',
+  borderRadius : '8px',
+  marginBlock : '10px',
+  color : '#B02020',
 }))
 
 
@@ -145,10 +150,6 @@ const ButtonTypeBox = styled(Paper)(()=>({
 
 
 let styles = {
-brandLogo : {
-    zIndex : '20',
-    margin : '-40px 0 0 -10px'
-},
 logoImg : {
     width : '42%'
 },
@@ -201,7 +202,9 @@ circleIcon : {
     color : 'white'  
 },
 aTag : {
-    textDecoration : 'none'
+    textDecoration : 'none',
+    whiteSpace : 'nowrap',
+  
 },
   contactCont: {
     display:'flex',
@@ -217,11 +220,6 @@ aTag : {
     justifyContent:'space-around',
     gap : '5px',
    
-  },
-  enquiryCont: {
-    display:'flex',
-    marginBlock:'10px',
-    justifyContent:'space-around',
   },
   navIcons : {
     fontSize : '24px',
@@ -245,83 +243,9 @@ aTag : {
   headerUnderline : {
     borderBottom : '2px solid #B02020',
     width : 'fit-content',
-    paddingBlock : '2vh',
-    color : '#B02020',
+    paddingBlock : '1vh',
     whiteSpace : 'nowrap'
   },
-  
-  galleryCont: {
-    display:'flex'
-  },
-  galleryImg : {
-    height:'50vw',
-    width:'35vw',
-    maxWidth:'400px',
-    borderRadius:'5px'
-  },
-
-  companiesCont: {
-    display:'flex',
-    flexDirection:'column',
-    justifyContent : 'center',
-  },
-  companyCont: {
-    border:'1px solid gray',
-    padding:'10px',
-    borderRadius:'10px',
-  },
-  companyNameCont : {
-    fontSize:'20px',
-    marginBottom:'10px',
-    borderBottom:'1px solid #eaeaea'
-  },
-  companyDescCont : {
-    fontSize:'17px'
-  },
-  companyImg: {
-    width:'80vw',
-    maxWidth:'400px',
-    borderRadius:'5px'
-  },
-
-  ecommCont : {
-    border:'1px solid gray',
-    padding:'10px',
-    borderRadius:'10px',
-    margin:'10px',
-    textAlign:'center',
-    display:'grid',
-  },
-  ecommProdImg: {
-    width:'22vw',
-    borderRadius:'5px'
-  },
-
-  productsCont: {
-    display:'flex',
-    flexDirection:'column'
-  },
-  productCont: {
-    border:'1px solid #919191',
-    padding:'10px',
-    borderRadius:'10px'
-  },
-  productNameCont: {
-    fontSize:'20px',
-    marginBottom:'10px',
-    borderBottom:'1px solid #eaeaea'
-  },
-  productDescCont: {
-    fontSize:'17px',
-    marginBottom:'10px'
-  },
-  prodImg: {
-    width:'80vw',
-    borderRadius:'5px',
-    marginTop:'10px',
-    maxWidth:'400px'
-  },
-  
   paymentLabel: {
     fontSize:'18px',
     marginBlock:'10px',
@@ -330,7 +254,11 @@ aTag : {
   invitation : {
     display : 'flex',
     alignItems : 'center',
-    gap : '5px'
+    gap : '5px',
+    padding : '10px',
+    backgroundColor : '#c4b6ab',
+    margin : '10px',
+    fontSize : '18px'
   },
   boxBold : {
     fontWeight : '800'
@@ -347,7 +275,21 @@ aTag : {
   textalign : {
     textAlign : 'center'
   },
-  
+  imgWidth : {
+    width : '70px'
+  },
+  closeIcon : {
+    fontSize : '30px',
+    position : 'absolute',
+    top : '20px',
+    right : '20px'
+  },
+  register : {
+    backgroundColor : '#d39854',
+    color : 'white',
+    borderRadius : '8px',
+    padding : '10px'
+  }
 
 }
 
@@ -361,13 +303,6 @@ headerName : {
 },
  defIcon: {
   fontSize:'20px',
-},
-enquiryCont: {
-  display:'flex',
-  marginBlock:'10px',
-  justifyContent:'space-around',
-  marginInline : '20px',
-  alignItems : 'center'
 },
 navIcons : {
   fontSize : '26px',
@@ -412,13 +347,7 @@ underline : {
   marginTop : '2px',
   marginLeft : '2vw',
   marginBottom : '5vh'
-},
-companiesCont: {
-  display:'flex',
-  flexDirection:'column',
-  justifyContent : 'center',
-  maxWidth : '330px'
-},
+}
 
 }
 
@@ -454,8 +383,11 @@ const Theme7 = (props) => {
   }, [])
 
   const marginTop = {
-    marginTop : isSmallScreen ? '40vh' : '30vh'
+    marginTop : '60vh'
   }
+  const [open, setOpen] = useState(false);
+  const handleOpen =  () =>setOpen(true)
+  const handleClose = () =>setOpen(false)
 
   return (<>
     {
@@ -464,107 +396,78 @@ const Theme7 = (props) => {
       <Box p={2} sx={{ maxWidth:'500px'}}>
         
         <UserCard>
-              <a href="https://statueofequality.org/register/" style={styles.aTag}>
-                <h3 style={{color : '#B02020'}}>REGISTER TO PARTICIPATE</h3>
-              </a>
 
             <ProfileDiv>
                 <Box><img src={JeeyarSwami} alt="" width={'100%'}/></Box>
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
-              {/* <Box sx={{zIndex : '0'}}>
-                <ReactPlayer height="100%" width="100%" playing={minTimeout ? true : false} onStart={() => setVideoStart(true)} muted url='https://firebasestorage.googleapis.com/v0/b/tykoon-fbbbb.appspot.com/o/posters%2Ffialn_cut_mp4.mp4?alt=media&token=b87170d8-b083-49dc-bb94-06d9d104315f' />
-              </Box> */}
 
+            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:'6.8%',left:'21%' }}>
+                <Box sx={styles.register} >REGISTER TO PARTICIPATE</Box>
+            </a>
 
-
-          <Grid container spacing={isSmallScreen ? 2: 1} paddingInline={isSmallScreen ? 0: 5} marginInline={isSmallScreen ? 1: 2} style={marginTop}>
-            <Grid item xs={4}>
-                <Box sx={styles.circleBox}>
-                    {
-                    card.mobileNo ? 
-                    <WhatsAppIcon style={styles.circleIcon} onClick={() => whatsappMe('7901422022')}/> : null
-                    }
-                </Box>
+          <Box sx={{...marginTop}}>
+          <h4 id="socialMedia">FOLLOW US ON</h4>
+          <Grid container>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://wa.me/917901422022"><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
+                WHATSAPP
+              </NavBox>
             </Grid>
-            <Grid item xs={4}>
-                <Box sx={styles.circleBox}>
-                    {
-                    card.mobileNo ? 
-                    <CallIcon style={styles.circleIcon} onClick={() => callMe('7901422022')}/> : null
-                    }
-                </Box>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="tel:/7901422022"><img src={Call} alt=""  style={styles.imgWidth}/></a>
+                CALL
+              </NavBox>
             </Grid>
-            <Grid item xs={4}>
-                <Box sx={styles.circleBox}>
-                    {
-                    card.email ? 
-                    <EmailIcon style={styles.circleIcon} onClick={() => mailMe(' contact@statueofequality.org')}/> : null
-                    }
-                </Box>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="mailto:contact@statueofequality.org"><img src={Email} alt=""  style={styles.imgWidth}/></a>
+                EMAIL
+              </NavBox>
             </Grid>
-            
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://www.facebook.com/statueofequality"><img src={Facebook} alt=""  style={styles.imgWidth}/></a>
+                FACEBOOK
+              </NavBox>
+            </Grid>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://twitter.com/StatueEquality"><img src={Twitter} alt=""  style={styles.imgWidth}/></a>
+                TWITTER
+              </NavBox>
+            </Grid>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://www.instagram.com/statue_of_equality/"><img src={Instagram} alt=""  style={styles.imgWidth}/></a>
+                INSTAGRAM
+              </NavBox>
+            </Grid>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://statueofequality.org/"><img src={Website} alt="" style={styles.imgWidth}/></a>
+                WEBSITE
+              </NavBox>
+            </Grid>
+            <Grid item xs={3}>
+              <NavBox>
+                <a href="https://www.youtube.com/@Statueofequality"><img src={Youtube} alt="" style={styles.imgWidth}/></a>
+                YOUTUBE
+              </NavBox>
+            </Grid>
           </Grid>
-
-          <Box sx={isSmallScreen ? mobileStyles.followUsBox: styles.followUsBox} marginBlock={isSmallScreen ? 1: 5}>
-          <p id="socialMedia" style={{color : 'rgb(176, 32, 32)' , paddingInline:'10px'}}>FOLLOW US ON</p>
-          <Box style={isSmallScreen ? mobileStyles.socialMediaCont: styles.socialMediaCont}>
-            <NavBox>
-              <CardsNav>
-                {
-                  card?.mediaLinks?.facebookLink ? 
-                  <FacebookIcon style={isSmallScreen ? mobileStyles.MediaIcon:styles.MediaIcon} onClick={() => openUrl('https://www.facebook.com/statueofequality')} /> : null
-                }
-              </CardsNav>
-              FACEBOOK
-            </NavBox>
-            <NavBox>
-              <CardsNav>
-                {
-                  card?.mediaLinks?.twitterLink ? 
-                  <TwitterIcon style={isSmallScreen ? mobileStyles.MediaIcon:styles.MediaIcon}  onClick={() => openUrl('https://twitter.com/StatueEquality')} /> : null
-                }
-              </CardsNav>
-              TWITTER
-            </NavBox>
-            <NavBox>
-              <CardsNav>
-                {
-                  card?.mediaLinks?.instagramLink ? 
-                  <InstagramIcon style={isSmallScreen ? mobileStyles.MediaIcon:styles.MediaIcon} onClick={() => openUrl('https://www.instagram.com/statue_of_equality/')} /> : null
-                }
-              </CardsNav>
-              INSTAGRAM
-            </NavBox>
-            <NavBox>
-              <CardsNav>
-                {
-                  card?.mediaLinks?.linkedinLink ? 
-                  <LinkedInIcon style={isSmallScreen ? mobileStyles.MediaIcon: styles.MediaIcon} onClick={() => openUrl('https://statueofequality.org/home/')} /> : null
-                }
-              </CardsNav>
-              WEBSITE
-            </NavBox>
-            <NavBox>
-              <CardsNav>
-                {
-                  card?.mediaLinks?.linkedinLink ? 
-                  <FaYoutube style={isSmallScreen ? mobileStyles.MediaIcon: styles.MediaIcon} onClick={() => openUrl('https://www.youtube.com/@Statueofequality')} /> : null
-                }
-              </CardsNav>
-              YOUTUBE
-            </NavBox>
-          </Box>
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <ButtonTypeBox onClick={()=>openUrl('')}>
+            <ButtonTypeBox onClick={()=>openUrl('')} >
               Facebook Page
-              <FacebookIcon style={{fontSize : '24px'}}/>
+              <img src={Facebook} alt="" style={{width : '50px'}}/>
             </ButtonTypeBox>
             <ButtonTypeBox onClick={()=>openUrl('https://t.me/+gnJOlvrMHK0zZGVl')}>
               Telegram Page
-              <FaTelegram style={{fontSize : '24px'}}/>
+              <img src={Telegram} alt="" style={{width : '50px'}}/>
             </ButtonTypeBox>
           </Box>
           
@@ -635,22 +538,22 @@ const Theme7 = (props) => {
           </Grid>
 
           <Box sx={{marginBlock : '5vh '}}>
-          <h4 style={styles.headerUnderline}>SAMATHA KUMB 2024 INVITATION LINKS :</h4>
-          <Stack>
-            <Box sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/02/Samatha-Kumbh-2024-FEB-20-MAR-1.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In English</a></Box>
-            <Box sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Telugu.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Telugu</a></Box>
-            <Box sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Hindi.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Hindhi</a></Box>
+          <HeaderBox style={styles.headerUnderline}>SAMATHA KUMB 2024 INVITATION LINKS :</HeaderBox>
+          <Stack sx={{ maxWidth : '300px',margin : 'auto',padding : '10px'}}>
+            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/02/Samatha-Kumbh-2024-FEB-20-MAR-1.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In English</a></Button>
+            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Telugu.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Telugu</a></Button>
+            <Button variant="contained"  sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Hindi.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Hindhi</a></Button>
           </Stack>
          </Box>
 
           <Box sx={isSmallScreen ? mobileStyles.aboutMe: styles.aboutMe}>
-            <h3 style={styles.headerUnderline} id="aboutMe">ABOUT STATUE OF EQUALITY :</h3>
+            <HeaderBox style={styles.headerUnderline} id="aboutMe">ABOUT STATUE OF EQUALITY :</HeaderBox>
             <Box sx={{lineHeight : '1.5'}}>
             The Statue of Equality is a statue of the 11th-century Indian philosopher Ramanuja,
             located on the premises of the Chinna Jeeyar Trust at Muchintal, Ranga Reddy district 
-            in the outskirts of Hyderabad. It is the second tallest sitting statue in the world. 
-            The project of building the statue was conceptualised by the trust to commemorate 1,000 
-            year birth anniversary of Ramanuja, costing an estimated ₹1,000 crore (US$130 million), 
+            in the outskirts of Hyderabad. <span style={{fontWeight : 'bold'}}>It is the second tallest sitting statue in the world.</span> 
+            The project of building the statue was conceptualised by the trust to commemorate <span style={{fontWeight : 'bold'}}>1,000 
+            year birth anniversary of Ramanuja</span>, costing an estimated ₹1,000 crore (US$130 million), 
             the project was paid for through the donations of devotees in a major part.
             </Box>
           </Box>
@@ -658,12 +561,12 @@ const Theme7 = (props) => {
           <ReactPlayer url={'https://www.youtube.com/watch?v=QfSMfEodOgM'} controls={false} width={'100%'} pip={true} stopOnUnmount={false}/>
 
           <Box>
-            <h3 style={styles.headerUnderline} id="fountain">FOUNTAIN AND LASER SHOW :</h3>
+            <HeaderBox style={styles.headerUnderline} id="fountain">FOUNTAIN AND LASER SHOW :</HeaderBox>
             <Box>
               <img src={FountainImg} alt="" width={'100%'}/>
             </Box>
             <Box sx={{textAlign : 'center'}}>
-                <h3 style={{color : '#F89E09'}}>LASER SHOW * EVENINGS ONLY *</h3>
+                <h3 style={{color : '#fa6a02'}}>LASER SHOW * EVENINGS ONLY *</h3>
                 <h4>Monday to Friday</h4>
                 <p>07:00 pm and 08:00 pm</p>
                 <h4>Saturday and Sunday</h4>
@@ -672,7 +575,7 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={isSmallScreen && mobileStyles.mobileScreenMargin}>
-            <h3 style={styles.headerUnderline} id="gallery">PHOTO GALLERY :</h3>
+            <HeaderBox style={styles.headerUnderline} id="gallery">PHOTO GALLERY :</HeaderBox>
             <Box>
               <h4>SAMATHA KUMBH 2023 HIGHLIGHTS :-</h4>
               <Grid container spacing={2} marginInline={isSmallScreen ? 5 : 0}>
@@ -771,7 +674,7 @@ const Theme7 = (props) => {
 
 
           <Box>
-            <h3 style={styles.headerUnderline}>TIMINGS AND FEE :</h3>
+            <HeaderBox style={styles.headerUnderline}>TIMINGS AND FEE :</HeaderBox>
             <Stack marginBlock={4}>
               <h4>Timings:</h4>
               <Paper sx={{textAlign : 'center', paddingBlock : '10px'}}>
@@ -789,53 +692,57 @@ const Theme7 = (props) => {
               <Box sx={{display : 'flex' , gap : '2px'}}><span style={{...styles.boxBold, width : '15%'}}>₹ 125</span><span>- per Child (between 5-12 years)</span></Box>
               <Box sx={{display : 'flex' , gap : '2px'}}><span style={{...styles.boxBold, width : '15%'}}>₹ 40</span><span>- for Car Parking</span></Box>
             </Paper>
-            
-
           </Box>
-
-
-         
-
-          <Box sx={isSmallScreen && mobileStyles.mobileScreenMargin}>
-            {
-              card.payments ? 
-              <Box >
+          
+          <Button onClick={handleOpen} variant="outlined" sx={{marginBlock : '20px'}}>Click for Entry Pass Payment Details</Button>
+          <Dialog onClose={handleClose} open={open}>
+            <Box sx={styles.closeIcon} onClick={handleClose}><IoCloseOutline/></Box>
+            <Stack direction={'column'} padding={2} >
+              <Box>
                 <h3 style={styles.headerUnderline} id="payments">PAYMENT DETAILS :</h3>
-                {
-                  card.payments.accounts.map((account, index) => {
-                    return <Box key={index} paddingInline={5}>
-                      {
-                        <>
-                          <Box>
-                            <Box style={styles.paymentLabel}>Account Name</Box>
-                            <Box>Divyasaketakshetram</Box>
-                          </Box>
-                          <Box>
-                            <Box style={styles.paymentLabel}>Bank Name</Box>
-                            <Box>Union Bank Of India</Box>
-                          </Box>
-                          <Box>
-                            <Box style={styles.paymentLabel}>Account Number</Box>
-                            <Box> 209710100033430</Box>
-                          </Box>
-                          <Box>
-                            <Box style={styles.paymentLabel}>IFSC Code</Box>
-                            <Box>UBIN0820971</Box>
-                          </Box>
-                        </>
-                      }
-                    </Box>
-                  })
-                }
-                
-              </Box> : null
-            }
-          </Box>
+                <Box>
+                  <Box style={styles.paymentLabel}>Account Name</Box>
+                  <Box>Divyasaketakshetram</Box>
+                </Box>
+                <Box>
+                  <Box style={styles.paymentLabel}>Bank Name</Box>
+                  <Box>Union Bank Of India</Box>
+                </Box>
+                <Box>
+                  <Box style={styles.paymentLabel}>Account Number</Box>
+                  <Box> 209710100033430</Box>
+                </Box>
+                <Box>
+                  <Box style={styles.paymentLabel}>IFSC Code</Box>
+                  <Box>UBIN0820971</Box>
+                </Box>
+              </Box>
+              <Box sx={{display : 'flex',flexDirection : 'column',gap : '15px'}}>
+                <h4 style={{color : '#fd8d4f'}}>Pay with:</h4>
+                <Stack direction={'row'} display={'flex'} gap={5}><img src={NetBanking} alt="" width={70} /><h4 style={{fontSize : '20px'}}>Net-Banking</h4></Stack>
+                <Box sx={{display : 'flex', alignItems : 'center',gap : '10px',fontSize : '24px',color : 'blue'}}>
+                  <img src={PhonePe} alt="" width={70}/>
+                  <img src={Paytm} alt="" width={70}/>
+                  <img src={GooglePay} alt="" width={70}/>
+                  
+                </Box>
+                <Box >
+                    <img src={QrCode} alt="" width={250}/>
+                  </Box>
+              </Box>
+            </Stack>
+          </Dialog>
 
           <Box>
-            <h3 style={styles.headerUnderline} id="fun-time">FUN TIME - CHITRALEKHANAM :</h3>
+            <HeaderBox style={styles.headerUnderline} id="fun-time">FUN TIME - CHITRALEKHANAM :</HeaderBox>
+            <Box>
+              <img src="https://lh3.googleusercontent.com/pw/ABLVV84Pwh0yn4bVrPelTnLoW_kFotMkSaaokUKd3g06iqsSZb3IVl3Zq0rrk5y-TIegdruejQ7EQe0CXaiTrIARTnUPV8axKfWCrlCkM7mgo8AFmfP5QY-fSaHmHCwRMf8vSDcVR5ffcLwK2WGXN9IlU1ZU=w411-h913-s-no-gm?authuser=0" alt="" width={'100%'} />
+            </Box>
+            <Box>
+              <img src="https://lh3.googleusercontent.com/pw/ABLVV86VZB1KL46gvex_DOlpAo7XwcH6psHd0uNmaAFj8LGxFjOyeewnRe5I9tVaSe-NfUuZTKcGjwQ6NkF3gggZ0DxG8Y1IXtUb2PdvCs9egNHsnXPF_KOl3eqMs3CtlXH704WJsg4ptg-lgsgw65xHiNXd=w1498-h913-s-no-gm?authuser=0" alt="" width={'100%'} />
+            </Box>
             <ButtonTypeBox style={{ display : 'flex' , justifyContent : 'center'}}>
-              <a href="https://photos.google.com/share/AF1QipPIVt-ErJmzOcXsQfnJhHH0gZj0Y8CvWRqifwuxOzcIawIFyijfPa55B0KcVLREfQ?pli=1&key=MW1jNWNPVERzaDdTekZGT0Rwa0o2VUFuUjVELWtn" target="_blank" style={{...styles.aTag , color : '#F4C5C9' }}>Google Photos Link</a>
+              <a href="https://photos.google.com/share/AF1QipPIVt-ErJmzOcXsQfnJhHH0gZj0Y8CvWRqifwuxOzcIawIFyijfPa55B0KcVLREfQ?pli=1&key=MW1jNWNPVERzaDdTekZGT0Rwa0o2VUFuUjVELWtn" target="_blank" style={{...styles.aTag , color : '#F4C5C9' }}>More To See</a>
             </ButtonTypeBox> 
           </Box>
 
@@ -855,7 +762,7 @@ const Theme7 = (props) => {
 
 
           <Box sx={isSmallScreen && mobileStyles.mobileScreenMargin}>
-            <h3 style={styles.headerUnderline}>ADDRESS :</h3>
+            <HeaderBox style={styles.headerUnderline}>ADDRESS :</HeaderBox>
             <Box sx={{paddingBlock : '5px'}}>
               <h4>STATUE OF EQUALITY</h4>
               <p>Sri Ramanagaram, Muchintal Road,Palmakol P.O.Shamshabad,HYDERABAD 509325</p>
