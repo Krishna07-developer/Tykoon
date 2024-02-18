@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.939caac2.css",
-    "main.js": "/static/js/main.96aa595a.js",
+    "main.css": "/static/css/main.b707d80c.css",
+    "main.js": "/static/js/main.c05f3036.js",
     "static/js/849.0379df88.chunk.js": "/static/js/849.0379df88.chunk.js",
     "static/js/527.5809c90a.chunk.js": "/static/js/527.5809c90a.chunk.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.e2cb55f3.chunk.js",
@@ -18,9 +18,10 @@
     "reactPlayerFilePlayer.js": "/static/js/reactPlayerFilePlayer.f0b9a994.chunk.js",
     "reactPlayerPreview.js": "/static/js/reactPlayerPreview.108997f3.chunk.js",
     "static/js/703.00b15679.chunk.js": "/static/js/703.00b15679.chunk.js",
-    "static/js/379.800b068b.chunk.js": "/static/js/379.800b068b.chunk.js",
+    "static/js/379.c2da3570.chunk.js": "/static/js/379.c2da3570.chunk.js",
     "static/js/815.e4209a79.chunk.js": "/static/js/815.e4209a79.chunk.js",
     "static/js/787.183c6334.chunk.js": "/static/js/787.183c6334.chunk.js",
+    "static/media/scan_me_qr_code.jpg": "/static/media/scan_me_qr_code.00d68794a2a74c8d1754.jpg",
     "static/media/statueOfEquality.jpg": "/static/media/statueOfEquality.93b36d78cc496fcb2d49.jpg",
     "static/media/jeeyarswamy.png": "/static/media/jeeyarswamy.6ac1c99ef7d28f421279.png",
     "static/media/riveruta-medium.ttf": "/static/media/riveruta-medium.7d6948391c58f6223407.ttf",
@@ -42,18 +43,21 @@
     "static/media/quotation.png": "/static/media/quotation.1672984c0500157225d0.png",
     "static/media/rating.png": "/static/media/rating.f0fcd86cf3978edc3ec7.png",
     "static/media/tykoon-full-logo.png": "/static/media/tykoon-full-logo.961edcfc7e6ffdc571a0.png",
+    "static/media/instagram.png": "/static/media/instagram.145d316b12d0493c3b93.png",
     "static/media/invoice.png": "/static/media/invoice.516bd3fcca56fbda0557.png",
     "static/media/cart.png": "/static/media/cart.383a0ed3e89d6c3c6ee9.png",
+    "static/media/websiteIcon.png": "/static/media/websiteIcon.c29cf570db9046660eeb.png",
     "static/media/nav-apps-act.png": "/static/media/nav-apps-act.05065e105ffab049cca5.png",
     "static/media/nav-apps.png": "/static/media/nav-apps.8b558aa978d0d752dd4e.png",
     "static/media/copy.png": "/static/media/copy.1abb6f17fb37153c5189.png",
+    "static/media/callIcon.png": "/static/media/callIcon.ca6fda631c85d6313d60.png",
     "static/media/nav-new.png": "/static/media/nav-new.9b0381b7ce59a243f690.png",
     "static/media/nav-home-act.png": "/static/media/nav-home-act.1b7d114aecd64c13c015.png",
     "static/media/nav-home.png": "/static/media/nav-home.77c33fe9807d7f3e1c92.png",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.939caac2.css.map": "/static/css/main.939caac2.css.map",
-    "main.96aa595a.js.map": "/static/js/main.96aa595a.js.map",
+    "main.b707d80c.css.map": "/static/css/main.b707d80c.css.map",
+    "main.c05f3036.js.map": "/static/js/main.c05f3036.js.map",
     "849.0379df88.chunk.js.map": "/static/js/849.0379df88.chunk.js.map",
     "527.5809c90a.chunk.js.map": "/static/js/527.5809c90a.chunk.js.map",
     "reactPlayerYouTube.e2cb55f3.chunk.js.map": "/static/js/reactPlayerYouTube.e2cb55f3.chunk.js.map",
@@ -70,12 +74,12 @@
     "reactPlayerFilePlayer.f0b9a994.chunk.js.map": "/static/js/reactPlayerFilePlayer.f0b9a994.chunk.js.map",
     "reactPlayerPreview.108997f3.chunk.js.map": "/static/js/reactPlayerPreview.108997f3.chunk.js.map",
     "703.00b15679.chunk.js.map": "/static/js/703.00b15679.chunk.js.map",
-    "379.800b068b.chunk.js.map": "/static/js/379.800b068b.chunk.js.map",
+    "379.c2da3570.chunk.js.map": "/static/js/379.c2da3570.chunk.js.map",
     "815.e4209a79.chunk.js.map": "/static/js/815.e4209a79.chunk.js.map",
     "787.183c6334.chunk.js.map": "/static/js/787.183c6334.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.939caac2.css",
-    "static/js/main.96aa595a.js"
+    "static/css/main.b707d80c.css",
+    "static/js/main.c05f3036.js"
   ]
 }
