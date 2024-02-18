@@ -144,212 +144,137 @@ const HeaderBox = styled(Box)(()=>({
 }))
 
 
+const DonationBox = styled(Box)(()=>({
+  background : '#B02020',
+  padding :'10px',
+  fontSize : '18px',
+  color : 'white',
+  marginBlock : '20px',
+  borderRadius : '8px',
+  display : 'flex',
+  justifyContent : 'center'
+}))
 
 
 
 
 
 let styles = {
-logoImg : {
-    width : '42%'
-},
-  profilePic : {
-    width : '100%',
-    height : '100%',
-    marginTop:'50px',
-    marginLeft : '3vw',
-    backgroundColor : 'white',
-    borderRadius : '50%'
+  underline : {
+     background : '#F76D02',
+     width : '170px',
+     height : '3px',
+     textAlign : 'center',
+     marginTop : '2px',
+     // marginLeft : '4vw'
   },
-  defIcon: {
-    fontSize:'25vw'
+  h3 : {
+   fontSize : '24px',
+   fontWeight : '900',
+   color : 'black'
   },
- headerName : {
-    margin : '30px 0 30px 20vw ',
-    textAlign : 'left',
-    lineHeight : '0.5'
+ aTag : {
+     textDecoration : 'none',
+     whiteSpace : 'nowrap',
+   
+ },
+   navIcons : {
+     fontSize : '24px',
+     marginTop : '10px',
+     color : 'white'
+   },
+   aboutMe : {
+     display : 'flex',
+     flexDirection : 'column',
+     marginBlock : '20px ',
+   },
+   headerUnderline : {
+     borderBottom : '2px solid #B02020',
+     width : 'fit-content',
+     paddingBlock : '1vh',
+     whiteSpace : 'nowrap'
+   },
+   paymentLabel: {
+     fontSize:'18px',
+     marginBlock:'10px',
+     fontWeight:'700'
+   },
+   invitation : {
+     display : 'flex',
+     alignItems : 'center',
+     gap : '5px',
+     padding : '10px',
+     backgroundColor : '#c4b6ab',
+     margin : '10px',
+     fontSize : '18px'
+   },
+   boxBold : {
+     fontWeight : '800'
+   },
+   photoGalleryImg : {
+     width : '250px'
+   },
+   flexItems : {
+     display : 'flex',
+     justifyContent : 'center',
+     gap : '5px',
+     alignItems : 'center'
+   },
+   textalign : {
+     textAlign : 'center'
+   },
+   imgWidth : {
+     width : '70px'
+   },
+   closeIcon : {
+     fontSize : '30px',
+     position : 'absolute',
+     top : '20px',
+     right : '20px'
+   },
+   register : {
+     backgroundColor : '#d39854',
+     color : 'white',
+     borderRadius : '8px',
+     padding : '10px',
+     boxShadow : '0 2px 4px black'
+   }
+ 
+ }
+ 
+ 
+ const mobileStyles = {
+ navIcons : {
+   fontSize : '26px',
+   marginTop : '10px',
+   color : 'white'
+ },
+ gridNav : {
+   paddingInline : '20px'
+ },
+ 
+ 
+ aboutMe : {
+   display : 'flex',
+   flexDirection : 'column',
+   margin : '8px ',
+ 
+ },
+ mobileScreenMargin : {
+   margin : '8px ',
  },
  underline : {
-    background : '#F76D02',
-    width : '170px',
-    height : '3px',
-    textAlign : 'center',
-    marginTop : '2px',
-    // marginLeft : '4vw'
- },
- h3 : {
-  fontSize : '24px',
-  fontWeight : '900',
-  color : 'black'
- },
- circleBox : {
-    border : '2px solid #B02020',
-    borderRadius : '50%',
-    width : 'max-content',
-    margin : '10px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    cursor : 'pointer',
-    boxShadow : '0 0 7px 2px gray'
- },
-circleIcon : {
-    background : '#B02020',
-    borderRadius : '50%',
-    fontSize : '24px',
-    padding : '10px',
-    margin : '3px',
-    color : 'white'  
-},
-aTag : {
-    textDecoration : 'none',
-    whiteSpace : 'nowrap',
-  
-},
-  contactCont: {
-    display:'flex',
-    marginTop:'20px',
-    justifyContent:'space-around'
-  },
-  followUsBox : {
-    display : 'flex' ,
-    flexDirection : 'column' ,
-  },
-  socialMediaCont: {
-    display:'flex',
-    justifyContent:'space-around',
-    gap : '5px',
-   
-  },
-  navIcons : {
-    fontSize : '24px',
-    marginTop : '10px',
-    color : 'white'
-  },
-
-  MediaIcon: {
-    padding:'10px',
-    borderRadius:'50%',
-    backgroundColor : 'black',
-    color : 'white',
-    marginTop : '5px',
-    fontSize : '18px'
-  },
-  aboutMe : {
-    display : 'flex',
-    flexDirection : 'column',
-    marginBlock : '20px ',
-  },
-  headerUnderline : {
-    borderBottom : '2px solid #B02020',
-    width : 'fit-content',
-    paddingBlock : '1vh',
-    whiteSpace : 'nowrap'
-  },
-  paymentLabel: {
-    fontSize:'18px',
-    marginBlock:'10px',
-    fontWeight:'700'
-  },
-  invitation : {
-    display : 'flex',
-    alignItems : 'center',
-    gap : '5px',
-    padding : '10px',
-    backgroundColor : '#c4b6ab',
-    margin : '10px',
-    fontSize : '18px'
-  },
-  boxBold : {
-    fontWeight : '800'
-  },
-  photoGalleryImg : {
-    width : '200px'
-  },
-  flexItems : {
-    display : 'flex',
-    justifyContent : 'center',
-    gap : '5px',
-    alignItems : 'center'
-  },
-  textalign : {
-    textAlign : 'center'
-  },
-  imgWidth : {
-    width : '70px'
-  },
-  closeIcon : {
-    fontSize : '30px',
-    position : 'absolute',
-    top : '20px',
-    right : '20px'
-  },
-  register : {
-    backgroundColor : '#d39854',
-    color : 'white',
-    borderRadius : '8px',
-    padding : '10px'
-  }
-
-}
-
-
-const mobileStyles = {
-
-headerName : {
-  margin : '30px 0 30px 55vw ',
-  textAlign : 'left',
-  lineHeight : '0.5'
-},
- defIcon: {
-  fontSize:'20px',
-},
-navIcons : {
-  fontSize : '26px',
-  marginTop : '10px',
-  color : 'white'
-},
-gridNav : {
-  paddingInline : '20px'
-},
-
-
-aboutMe : {
-  display : 'flex',
-  flexDirection : 'column',
-  margin : '8px ',
-
-},
-mobileScreenMargin : {
-  margin : '8px ',
-},
-followUsBox : {
-  marginLeft : '10px'
-},
-socialMediaCont: {
-  display:'flex',
-  justifyContent:'center',
-  gap : '8px'
-},
-MediaIcon: {
-  padding:'10px',
-  borderRadius:'50%',
-  backgroundColor : '#590009',
-  color : 'white',
-  marginTop : '5px',
-  fontSize : '16px'
-},
-underline : {
-  background : '#F76D02',
-  width : '100px',
-  height : '3px',
-  textAlign : 'center',
-  marginTop : '2px',
-  marginLeft : '2vw',
-  marginBottom : '5vh'
-}
-
-}
+   background : '#F76D02',
+   width : '100px',
+   height : '3px',
+   textAlign : 'center',
+   marginTop : '2px',
+   marginLeft : '2vw',
+   marginBottom : '5vh'
+ }
+ 
+ }
+ 
 
 
 
@@ -383,7 +308,7 @@ const Theme7 = (props) => {
   }, [])
 
   const marginTop = {
-    marginTop : isDesktop ?  '80vh': '60vh'
+    marginTop : isSmallScreen ?  '60vh': '60vh'
   }
   const [open, setOpen] = useState(false);
   const handleOpen =  () =>setOpen(true)
@@ -401,7 +326,7 @@ const Theme7 = (props) => {
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
 
-            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:isDesktop ? '10.5%': '6.8%',left:isDesktop ? '30%':'21%' }}>
+            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:isSmallScreen ? '6.7%': '6.8%',left:isSmallScreen ? '20%':'21%' }}>
                 <Box sx={styles.register} >REGISTER TO PARTICIPATE</Box>
             </a>
 
@@ -410,7 +335,7 @@ const Theme7 = (props) => {
           <Grid container>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://wa.me/917901422022"><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
+                <a href="https://wa.me/919281079474?text=Hi"><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
                 WHATSAPP
               </NavBox>
             </Grid>
@@ -460,7 +385,7 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <a href="" style={{textDecoration : 'none'}}>
+            <a href="https://www.facebook.com/jeeyarswamy" style={{textDecoration : 'none'}}>
             <ButtonTypeBox>
               Facebook Page
               <img src={Facebook} alt="" style={{width : '50px'}}/>
@@ -477,6 +402,12 @@ const Theme7 = (props) => {
 
           <div style={{display : 'flex' , justifyContent : 'center'}}><p style={styles.underline}></p></div>
           
+          <DonationBox>
+            <a href="https://donations.divyasaketham.org/product-category/samatha-kumbh-2024/" style={{textDecoration : 'none', color : 'white',textWrap : 'nowrap'}}>
+                PARTICIPATE FOR DONATION
+            </a>
+          </DonationBox>
+
           <Grid container spacing={3} sx={isSmallScreen && mobileStyles.gridNav}>
             <Grid item xs={4} md={4}>
                 <a href="#aboutMe" style={styles.aTag} onClick={handleScroll}>
@@ -697,8 +628,10 @@ const Theme7 = (props) => {
             </Paper>
           </Box>
           
-          <Button onClick={handleOpen} variant="outlined" sx={{marginBlock : '20px'}}>Click for Entry Pass Payment Details</Button>
-          <Dialog onClose={handleClose} open={open}>
+          <a href="https://samaroham.divyasaketham.org/" style={{margin : 'auto'}}>
+          <Button  variant="outlined" sx={{marginBlock : '20px'}}>Book Entry Pass</Button>
+          </a>
+          {/* <Dialog onClose={handleClose} open={open}>
             <Box sx={styles.closeIcon} onClick={handleClose}><IoCloseOutline/></Box>
             <Stack direction={'column'} padding={2} >
               <Box>
@@ -734,7 +667,7 @@ const Theme7 = (props) => {
                   </Box>
               </Box>
             </Stack>
-          </Dialog>
+          </Dialog> */}
 
           <Box>
             <HeaderBox style={styles.headerUnderline} id="fun-time">FUN TIME - CHITRALEKHANAM :</HeaderBox>
