@@ -383,7 +383,7 @@ const Theme7 = (props) => {
   }, [])
 
   const marginTop = {
-    marginTop : '60vh'
+    marginTop : isDesktop ?  '80vh': '60vh'
   }
   const [open, setOpen] = useState(false);
   const handleOpen =  () =>setOpen(true)
@@ -401,7 +401,7 @@ const Theme7 = (props) => {
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
 
-            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:'6.8%',left:'21%' }}>
+            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:isDesktop ? '10.5%': '6.8%',left:isDesktop ? '30%':'21%' }}>
                 <Box sx={styles.register} >REGISTER TO PARTICIPATE</Box>
             </a>
 
@@ -460,14 +460,18 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <ButtonTypeBox onClick={()=>openUrl('')} >
+            <a href="" style={{textDecoration : 'none'}}>
+            <ButtonTypeBox>
               Facebook Page
               <img src={Facebook} alt="" style={{width : '50px'}}/>
             </ButtonTypeBox>
-            <ButtonTypeBox onClick={()=>openUrl('https://t.me/+gnJOlvrMHK0zZGVl')}>
-              Telegram Page
-              <img src={Telegram} alt="" style={{width : '50px'}}/>
-            </ButtonTypeBox>
+            </a>
+              <a href="https://t.me/+gnJOlvrMHK0zZGVl" style={{textDecoration : 'none'}}>
+              <ButtonTypeBox>
+                Telegram Page
+                <img src={Telegram} alt="" style={{width : '50px'}}/>
+              </ButtonTypeBox>
+              </a>
           </Box>
           
 
