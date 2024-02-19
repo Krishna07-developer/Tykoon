@@ -73,9 +73,15 @@ b {
   overflow-x: unset !important;
   overflow-y: unset !important;
   max-height: none !important;
+  margin-bottom: -145px !important;
 }
 
 .css-z98wpe {
   margin-bottom: -85px !important;
-  margin-left: -50px !important;
+  /* margin-left: -50px !important; */
+  padding-inline: 10px;
+}
+
+.css-9pgt8r-MuiPaper-root {
+  display: none !important;
 }

@@ -48,10 +48,13 @@ const UserCard = styled(Paper)(()=>({
     backgroundColor : '#e1b070',
     justifyContent : 'center',
     fontFamily : ' Teko, sans-serif',
-    padding :'10px',
+    // paddingInline :'16px',
+    marginInline : '-20px',
+    // marginBottom : '-20px',
     '@media (max-width : 600px)' : {
       marginTop : '-8vh',
       marginBottom :'10vh',
+      // marginLeft : '-20px'
     }
 }))
 
@@ -63,7 +66,7 @@ const ProfileDiv = styled(Box)(()=>({
     '@media (max-width : 600px)' : {
       width : '100px',
       height : '100px',
-      margin : '0vh 0  5vh 60vw',
+      margin : '10vh 0  5vh 65vw',
       
     }
 }))
@@ -149,10 +152,11 @@ const DonationBox = styled(Box)(()=>({
   padding :'10px',
   fontSize : '18px',
   color : 'white',
-  marginBlock : '20px',
   borderRadius : '8px',
   display : 'flex',
-  justifyContent : 'center'
+  justifyContent : 'center',
+  maxWidth : 'fit-content',
+  margin : 'auto'
 }))
 
 
@@ -250,7 +254,8 @@ let styles = {
    color : 'white'
  },
  gridNav : {
-   paddingInline : '20px'
+   paddingInline : '20px',
+   marginBlock : '20px'
  },
  
  
@@ -294,8 +299,7 @@ function handleScroll(event) {
 
 const Theme7 = (props) => {
   
-  const {card, callMe, whatsappMe, mailMe, initApptBooking, initEnquiryBooking,
-         openUrl, cartData, updateCart, showCartModal} = props
+  
          const isDesktop = true
 
   const isSmallScreen = useMediaQuery('(max-width : 600px)')
@@ -310,14 +314,13 @@ const Theme7 = (props) => {
   const marginTop = {
     marginTop : isSmallScreen ?  '60vh': '60vh'
   }
-  const [open, setOpen] = useState(false);
-  const handleOpen =  () =>setOpen(true)
-  const handleClose = () =>setOpen(false)
+  // const [open, setOpen] = useState(false);
+  // const handleOpen =  () =>setOpen(true)
+  // const handleClose = () =>setOpen(false)
 
   return (<>
-    <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', background:'#f2fcff', 
-                        padding: isDesktop ? '20px' : ''}}> 
-      <Box p={2} sx={{ maxWidth:'500px'}}>
+    
+      <Box  sx={{ maxWidth:'500px'}}>
         
         <UserCard>
 
@@ -709,7 +712,6 @@ const Theme7 = (props) => {
           
         </UserCard>
       </Box> 
-    </Box>
       
   </>)
 }
