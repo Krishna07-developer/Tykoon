@@ -26,6 +26,7 @@ import Email from "../assets/mail.png"
 
 
 
+
 const UserCard = styled(Paper)(()=>({
     display:'flex',
     flexDirection:'column',
@@ -156,7 +157,8 @@ let styles = {
  aTag : {
      textDecoration : 'none',
      whiteSpace : 'nowrap',
-   
+     color : 'white'
+    
  },
    navIcons : {
      fontSize : '24px',
@@ -169,7 +171,6 @@ let styles = {
      marginBlock : '20px ',
    },
    headerUnderline : {
-     borderBottom : '2px solid #B02020',
      width : 'fit-content',
      paddingBlock : '1vh',
      whiteSpace : 'nowrap'
@@ -222,7 +223,8 @@ let styles = {
      boxShadow : '0 2px 4px black',
      width : 'fit-content',
      fontWeight : '600',
-     
+     marginTop : '110%',
+     marginLeft : '25%'
    }
  
  }
@@ -304,9 +306,13 @@ const Theme7 = (props) => {
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
 
-            <a href="https://statueofequality.org/register/" style={{...styles.aTag,paddingTop:'100%',margin:'auto'}}>
-                <Button  sx={{...styles.register}}  >REGISTER TO PARTICIPATE</Button>
-            </a>
+            
+                <Button  sx={{...styles.register}}>
+                <a href="https://statueofequality.org/register/" style={{...styles.aTag}}>
+                REGISTER TO PARTICIPATE
+                </a>
+                </Button>
+            
 
            <Box sx={{...marginTop}}>
           <h4 id="socialMedia">FOLLOW US ON</h4>
@@ -381,7 +387,7 @@ const Theme7 = (props) => {
           <div style={{display : 'flex' , justifyContent : 'center'}}><p style={styles.underline}></p></div>
           
             <a href="https://donations.divyasaketham.org/product-category/samatha-kumbh-2024/" style={{textDecoration : 'none', color : 'white',textWrap : 'nowrap',margin : 'auto'}}>
-            <Button variant="contained" sx={{boxShadow : '0 2px 4px black',fontWeight : '600'}}>
+            <Button variant="contained" sx={{boxShadow : '0 2px 4px black',fontWeight : '600',backgroundColor:'#ad2e2a'}}>
                   PARTICIPATE IN DONATION
             </Button>
             </a>
@@ -626,7 +632,7 @@ const Theme7 = (props) => {
           </Box>
           
           <a href="https://samaroham.divyasaketham.org/" style={{margin : 'auto'}}>
-          <Button  variant="contained" sx={{marginBlock : '20px',boxShadow : '0 2px 4px black',fontWeight : '600'}}>Book Entry Pass</Button>
+          <Button  variant="contained" sx={{marginBlock : '20px',boxShadow : '0 2px 4px black',fontWeight : '600',backgroundColor:'#ad2e2a'}}>Book Entry Pass</Button>
           </a>
         
 
