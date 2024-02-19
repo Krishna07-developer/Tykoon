@@ -399,7 +399,7 @@ const Theme7 = (props) => {
           
             <a href="https://donations.divyasaketham.org/product-category/samatha-kumbh-2024/" style={{textDecoration : 'none', color : 'white',textWrap : 'nowrap',margin : 'auto'}}>
             <Button variant="contained" sx={{boxShadow : '0 2px 4px black',fontWeight : '600'}}>
-                  PARTICIPATE FOR DONATION
+                  PARTICIPATE IN DONATION
             </Button>
             </a>
 
