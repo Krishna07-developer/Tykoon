@@ -40,11 +40,9 @@ const UserCard = styled(Paper)(()=>({
     fontFamily : ' Teko, sans-serif',
     // alignItems : 'center',
     // maxWidth :'50vw',
-    width : 'fit-content',
+    width : '500px',
     '@media (max-width : 600px)' : {
-      // margin : '-25px',
-      // marginLeft : '53px',
-      // padding : '46px'
+      width : 'fit-content'
     }
 }))
 
