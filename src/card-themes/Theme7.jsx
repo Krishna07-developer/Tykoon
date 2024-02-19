@@ -39,10 +39,12 @@ const UserCard = styled(Paper)(()=>({
     justifyContent : 'center',
     fontFamily : ' Teko, sans-serif',
     // alignItems : 'center',
+    // maxWidth :'50vw',
+    width : 'fit-content',
     '@media (max-width : 600px)' : {
-      margin : '-25px',
-      marginLeft : '53px',
-      padding : '46px'
+      // margin : '-25px',
+      // marginLeft : '53px',
+      // padding : '46px'
     }
 }))
 
@@ -205,7 +207,9 @@ let styles = {
      fontWeight : '800'
    },
    photoGalleryImg : {
-     width : '250px'
+     width : '250px',
+
+     
    },
    flexItems : {
      display : 'flex',
@@ -292,9 +296,6 @@ function handleScroll(event) {
 
 
 const Theme7 = (props) => {
-  
-  
-         const isDesktop = true
 
   const isSmallScreen = useMediaQuery('(max-width : 600px)')
   const [minTimeout, setMinTimeout] = useState(false)
@@ -311,8 +312,8 @@ const Theme7 = (props) => {
 
 
   return (<>  
-        <Box sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-          <Box p={2} sx={{ maxWidth:'500px'}}> 
+        
+           
           <UserCard>
 
             <ProfileDiv>
@@ -324,7 +325,7 @@ const Theme7 = (props) => {
                 <Button  sx={{...styles.register,marginTop : '120%'}}  >REGISTER TO PARTICIPATE</Button>
             </a>
 
-          <Box sx={{...marginTop}}>
+           <Box sx={{...marginTop}}>
           <h4 id="socialMedia">FOLLOW US ON</h4>
           <Grid container>
             <Grid item xs={3}>
@@ -502,106 +503,125 @@ const Theme7 = (props) => {
             </Box>
           </Box>
 
-          <Box sx={isSmallScreen && mobileStyles.mobileScreenMargin}>
+          <Box>
             <HeaderBox style={styles.headerUnderline} id="gallery">PHOTO GALLERY :</HeaderBox>
             <Box>
               <h4>SAMATHA KUMBH 2023 HIGHLIGHTS :-</h4>
-              <Grid container spacing={2} marginInline={isSmallScreen ? 5 : 0}>
+              <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <Stack>
-                      <Box sx={styles.photoGalleryImg}>
-                      <a href="https://photos.google.com/share/AF1QipOLSvYvhOFSJqoOZ9UTgJeBR64znkszaw2qP9VkR92AYVQVEImPG50CGjRwt0ylTQ?key=QTdGWHhKV0IwNUtlN1UweVJ3ZlRqZ3lpelZDeVpR" target="_blank">
-                      <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samatha-Kumbh-Day-1-Celebrations.jpg" alt="" width={'100%'} /></a></Box>
+                  <Box sx={styles.photoGalleryImg}>
+                      <a href="https://photos.google.com/share/AF1QipOLSvYvhOFSJqoOZ9UTgJeBR64znkszaw2qP9VkR92AYVQVEImPG50CGjRwt0ylTQ?key=QTdGWHhKV0IwNUtlN1UweVJ3ZlRqZ3lpelZDeVpR" target="_blank" style={styles.photoGalleryImg}>
+                      <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samatha-Kumbh-Day-1-Celebrations.jpg" alt="" width={'100%'} /></a>
                       <Box>Feb 2 2023</Box>
-                    </Stack>
+                  </Box>
+                    
                 </Grid>
                
                   <Grid item xs={12} md={6}>
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOZhV9hZh1jyX64VPeiZFsG_io6-rwAqWCk5q61vO1zjxF6G8libVd0tUGw6B1Lqw?key=R2xhcTB2YUpmbGhKUlpPVDd1UlZnRmRudEZBVF93" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipOZhV9hZh1jyX64VPeiZFsG_io6-rwAqWCk5q61vO1zjxF6G8libVd0tUGw6B1Lqw?key=R2xhcTB2YUpmbGhKUlpPVDd1UlZnRmRudEZBVF93" target="_blank" style={styles.photoGalleryImg}>
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/MAV.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
                     <Box>Feb 3 2023</Box>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipMfghaiR_a64KoKsv_-SqW32gUAjbLCcngmEKtaU1LU016TsvYxP7WbCgGqsQSnsg?key=Smt5b2x0dmpYWWtwMlEtLWxiakt6Qnl5cjBpZEFB" target="_blank">
-                    <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samathakumbh-Day-2.jpg" alt="" width={'100%'}/>
-                    </a>
                     </Box>
-                    <Box>Feb 4 2023</Box>
+                    
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOaTKjV1JoDAnE2mZ1k9CEasZlGVdyFfa5QpzhcGDrXOV34TTk9y8yICv-xbVikBQ?key=RWV1bG1Pa3laaG5YQklUeE1DbDRGQW5BUUVScGRn" target="_blank">
+                      <a href="https://photos.google.com/share/AF1QipMfghaiR_a64KoKsv_-SqW32gUAjbLCcngmEKtaU1LU016TsvYxP7WbCgGqsQSnsg?key=Smt5b2x0dmpYWWtwMlEtLWxiakt6Qnl5cjBpZEFB" target="_blank" >
+                      <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samathakumbh-Day-2.jpg" alt="" width={'100%'}/>
+                      </a>
+                      
+                      <Box>Feb 4 2023</Box>
+                    </Box>
+                    
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    
+                    <Box sx={styles.photoGalleryImg}>
+                    <a href="https://photos.google.com/share/AF1QipOaTKjV1JoDAnE2mZ1k9CEasZlGVdyFfa5QpzhcGDrXOV34TTk9y8yICv-xbVikBQ?key=RWV1bG1Pa3laaG5YQklUeE1DbDRGQW5BUUVScGRn" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samatha-kumbh-Feb-5-2.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                    
                     <Box>Feb 5 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                    
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOJYA_XtmAdtbitw33IBpNoaK0skWX40cJ9V4IlGdT3Zksnz-ENg71MqCiJHKzpLw?key=VHlBbkZfNlJVanR2TlVhaTB3UE1GYk5zNHI4TkZB" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipOJYA_XtmAdtbitw33IBpNoaK0skWX40cJ9V4IlGdT3Zksnz-ENg71MqCiJHKzpLw?key=VHlBbkZfNlJVanR2TlVhaTB3UE1GYk5zNHI4TkZB" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samatha-kumbh-Feb-6-1.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                    
                     <Box>Feb 6 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                   
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipO0XoN5__OqSph_83NXYkkHVbHifB1xx4H-9voyZ_NGIwiPLEsyq2S0a0K4Jrc7sA?key=T2lTVFBXTmFzem92QnROLUFobWU5MnRBQ0JybDJ3" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipO0XoN5__OqSph_83NXYkkHVbHifB1xx4H-9voyZ_NGIwiPLEsyq2S0a0K4Jrc7sA?key=T2lTVFBXTmFzem92QnROLUFobWU5MnRBQ0JybDJ3" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/Samatha-kumbh-Feb-7-1.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                    
                     <Box>Feb 7 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                   
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOg-86JFHVyDScyt7aUqa_5mLSmWeV89h3YLfQTZvVSDmzNXo1K7LysHcNfMtzU0w?key=X0tFTXBiUFpRaFNGSU1HdjQ0ZU5HOWF5OGNjdFVR" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipOg-86JFHVyDScyt7aUqa_5mLSmWeV89h3YLfQTZvVSDmzNXo1K7LysHcNfMtzU0w?key=X0tFTXBiUFpRaFNGSU1HdjQ0ZU5HOWF5OGNjdFVR" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/03/HH-Chinna-Jeeyar-Swamiji-with-Children.jpeg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                  
                     <Box>Feb 8 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                    
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOizqtPjQsAcjAsZG1wmK6xWHUF3cFDsPPVfgO5FKsocw6jhVjL5F83o8TNIqsFow?key=ZmNRNlE1SS1YWlpqOW1fcjhyZ3hQTmN2Rkhqc3FB" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipOizqtPjQsAcjAsZG1wmK6xWHUF3cFDsPPVfgO5FKsocw6jhVjL5F83o8TNIqsFow?key=ZmNRNlE1SS1YWlpqOW1fcjhyZ3hQTmN2Rkhqc3FB" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/HH-Chinna-Jeeyar-Swamiji-Lord-Sri-Rama-Chandra-Swami.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                    
                     <Box>Feb 9 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
-                    <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipPKlET7EhHSn2BJIT7Tx2rXivHAEmnQG-Yw0wXZsFoDvtwDsOT7JbN42evp2Q0EWw?key=Tks2RnRuTmtrS3BFWWdaMW13OXI5cmdUVmw0QWt3" target="_blank">
+                    
+                   <Box sx={styles.photoGalleryImg}>
+                   <a href="https://photos.google.com/share/AF1QipPKlET7EhHSn2BJIT7Tx2rXivHAEmnQG-Yw0wXZsFoDvtwDsOT7JbN42evp2Q0EWw?key=Tks2RnRuTmtrS3BFWWdaMW13OXI5cmdUVmw0QWt3" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/03/18-garudas-seva-samatha-kumbh-2023.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                   
                     <Box>Feb 10 2023</Box>
+                   </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                    
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipNboFmlj3pVGLIK86nrP89jCKEzyvXJWclsT6XTbC0XU-22NoM2g-pNePJRrqTOzA?key=Nl9RY215b1ZJM3gyUWlsMldlelRzYTdsN0c3MzZn" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipNboFmlj3pVGLIK86nrP89jCKEzyvXJWclsT6XTbC0XU-22NoM2g-pNePJRrqTOzA?key=Nl9RY215b1ZJM3gyUWlsMldlelRzYTdsN0c3MzZn" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/02/HH-Chinna-Jeeyar-Swamiji-Samatha-Kumbh-2023-Ratthotsvam.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                  
                     <Box>Feb 11 2023</Box>
+                    </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
+                    
                     <Box sx={styles.photoGalleryImg}>
-                    <a href="https://photos.google.com/share/AF1QipOKEYXOkfsey-izWvdiW81Kzb74ZeSB3-tFRQxe0rQVAQBEuV2UUoZTmwBwPwah3Q?key=QU5oNlBGcVhHd09KTWNvQ2NkWEcxLUt0Y2MyMEdB" target="_blank">
+                    <a href="https://photos.google.com/share/AF1QipOKEYXOkfsey-izWvdiW81Kzb74ZeSB3-tFRQxe0rQVAQBEuV2UUoZTmwBwPwah3Q?key=QU5oNlBGcVhHd09KTWNvQ2NkWEcxLUt0Y2MyMEdB" target="_blank" >
                     <img src="https://statueofequality.org/wp-content/uploads/2023/03/Samatha-Kumbh-Maha-Kumbha-prokshana.jpg" alt="" width={'100%'}/>
                     </a>
-                    </Box>
+                    
                     <Box>Feb 12 2023</Box>
+                    </Box>
                   </Grid>
                 </Grid>
             </Box>
           </Box>
 
 
-          <Box>
+         <Box>
             <HeaderBox style={styles.headerUnderline} id="timings">TIMINGS AND FEE :</HeaderBox>
             <Stack marginBlock={4}>
               <h4>Timings:</h4>
@@ -625,43 +645,7 @@ const Theme7 = (props) => {
           <a href="https://samaroham.divyasaketham.org/" style={{margin : 'auto'}}>
           <Button  variant="contained" sx={{marginBlock : '20px',boxShadow : '0 2px 4px black',fontWeight : '600'}}>Book Entry Pass</Button>
           </a>
-          {/* <Dialog onClose={handleClose} open={open}>
-            <Box sx={styles.closeIcon} onClick={handleClose}><IoCloseOutline/></Box>
-            <Stack direction={'column'} padding={2} >
-              <Box>
-                <h3 style={styles.headerUnderline} id="payments">PAYMENT DETAILS :</h3>
-                <Box>
-                  <Box style={styles.paymentLabel}>Account Name</Box>
-                  <Box>Divyasaketakshetram</Box>
-                </Box>
-                <Box>
-                  <Box style={styles.paymentLabel}>Bank Name</Box>
-                  <Box>Union Bank Of India</Box>
-                </Box>
-                <Box>
-                  <Box style={styles.paymentLabel}>Account Number</Box>
-                  <Box> 209710100033430</Box>
-                </Box>
-                <Box>
-                  <Box style={styles.paymentLabel}>IFSC Code</Box>
-                  <Box>UBIN0820971</Box>
-                </Box>
-              </Box>
-              <Box sx={{display : 'flex',flexDirection : 'column',gap : '15px'}}>
-                <h4 style={{color : '#fd8d4f'}}>Pay with:</h4>
-                <Stack direction={'row'} display={'flex'} gap={5}><img src={NetBanking} alt="" width={70} /><h4 style={{fontSize : '20px'}}>Net-Banking</h4></Stack>
-                <Box sx={{display : 'flex', alignItems : 'center',gap : '10px',fontSize : '24px',color : 'blue'}}>
-                  <img src={PhonePe} alt="" width={70}/>
-                  <img src={Paytm} alt="" width={70}/>
-                  <img src={GooglePay} alt="" width={70}/>
-                  
-                </Box>
-                <Box >
-                    <img src={QrCode} alt="" width={250}/>
-                  </Box>
-              </Box>
-            </Stack>
-          </Dialog> */}
+        
 
           <Box>
             <HeaderBox style={styles.headerUnderline} id="fun-time">FUN TIME - CHITRALEKHANAM :</HeaderBox>
@@ -679,7 +663,7 @@ const Theme7 = (props) => {
 
           <Box marginBlock={5}>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems : 'center' , gap : '5px'}}>
-              <Box><img src="https://statueofequality.org/wp-content/uploads/2022/12/dress-code--300x265.jpeg" alt="" /></Box>
+              <Box textAlign={'center'}><img src="https://statueofequality.org/wp-content/uploads/2022/12/dress-code--300x265.jpeg" alt="" /></Box>
               <Stack textAlign={'center'}>
                 <h3>ENTRY DRESS CODE</h3>
                 <h3>TO MAINTAIN THE SOCIAL AND SPIRITUAL AMBIENCE WITHIN THE COMPLEX,PLEASE FOLLOW THE DRESS CODE</h3>
@@ -702,8 +686,8 @@ const Theme7 = (props) => {
           </Box>
           
           </UserCard>
-          </Box>
-        </Box>
+          
+        
      
       
   </>)
