@@ -207,7 +207,7 @@ let styles = {
      fontWeight : '800'
    },
    photoGalleryImg : {
-     width : '250px',
+     width : '100%',
 
      
    },
