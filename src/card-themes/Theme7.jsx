@@ -1,7 +1,4 @@
-import CardBase from "./CardBase"
-import ImageLoader from '../components/ImageLoader'
-import { Button, Box, Paper, Grid, Fab, Badge, Card , useMediaQuery, Stack, Table, TableHead, TableRow, TableCell, TableContainer, TableBody, Dialog} from '@mui/material'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { Button, Box, Paper, Grid,  useMediaQuery, Stack, } from '@mui/material'
 import { FaUserTie } from "react-icons/fa";
 import { LiaIndustrySolid } from "react-icons/lia";
 import { LuStore } from "react-icons/lu";
@@ -25,12 +22,6 @@ import Instagram from "../assets/instagram.png"
 import Website from "../assets/websiteIcon.png"
 import Call from "../assets/callIcon.png"
 import Email from "../assets/mail.png"
-import Paytm from "../assets/paytm-icon.png"
-import PhonePe from "../assets/phonepe-logo-icon.png"
-import GooglePay from "../assets/google-pay-icon.png"
-import QrCode from "../assets/scan_me_qr_code.jpg"
-import NetBanking from "../assets/net-banking-icon.png"
-import { IoCloseOutline } from "react-icons/io5";
 
 
 
@@ -44,17 +35,14 @@ const UserCard = styled(Paper)(()=>({
     backgroundSize : '100%',
     backgroundPosition : 'top center',
     backgroundRepeat : 'no-repeat',
-    width : '100%',
-    backgroundColor : '#e1b070',
+    backgroundColor : '#ffe5c4',
     justifyContent : 'center',
     fontFamily : ' Teko, sans-serif',
-    // paddingInline :'16px',
-    marginInline : '-20px',
-    // marginBottom : '-20px',
+    // alignItems : 'center',
     '@media (max-width : 600px)' : {
-      marginTop : '-8vh',
-      marginBottom :'10vh',
-      // marginLeft : '-20px'
+      margin : '-25px',
+      marginLeft : '53px',
+      padding : '46px'
     }
 }))
 
@@ -66,7 +54,7 @@ const ProfileDiv = styled(Box)(()=>({
     '@media (max-width : 600px)' : {
       width : '100px',
       height : '100px',
-      margin : '10vh 0  5vh 65vw',
+      margin : '10vh 0  5vh 80vw',
       
     }
 }))
@@ -138,12 +126,13 @@ const ButtonTypeBox = styled(Paper)(()=>({
 
 const HeaderBox = styled(Box)(()=>({
   background : 'white',
-  boxShadow : '0 2px 4px black',
-  fontFamily : '',
+  // boxShadow : '0 2px 2px black',
+  // fontFamily : '',
   padding : '5px',
   borderRadius : '8px',
   marginBlock : '10px',
   color : '#B02020',
+  fontWeight : '700'
 }))
 
 
@@ -208,9 +197,9 @@ let styles = {
      alignItems : 'center',
      gap : '5px',
      padding : '10px',
-     backgroundColor : '#c4b6ab',
+     backgroundColor : '#d39854',
      margin : '10px',
-     fontSize : '18px'
+     fontSize : '18px',
    },
    boxBold : {
      fontWeight : '800'
@@ -240,8 +229,13 @@ let styles = {
      backgroundColor : '#d39854',
      color : 'white',
      borderRadius : '8px',
-     padding : '10px',
-     boxShadow : '0 2px 4px black'
+     padding : '12px',
+     boxShadow : '0 2px 4px black',
+     width : 'fit-content',
+     top : '50%',
+     left : '50%',
+     transform : 'translate(-50%,-50%)',
+     fontWeight : '600'
    }
  
  }
@@ -312,25 +306,22 @@ const Theme7 = (props) => {
   }, [])
 
   const marginTop = {
-    marginTop : isSmallScreen ?  '60vh': '60vh'
+    marginTop : isSmallScreen ?  '1vh': '5vh'
   }
-  // const [open, setOpen] = useState(false);
-  // const handleOpen =  () =>setOpen(true)
-  // const handleClose = () =>setOpen(false)
 
-  return (<>
-    
-      <Box  sx={{ maxWidth:'500px'}}>
-        
-        <UserCard>
+
+  return (<>  
+        <Box sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <Box p={2} sx={{ maxWidth:'500px'}}> 
+          <UserCard>
 
             <ProfileDiv>
                 <Box><img src={JeeyarSwami} alt="" width={'100%'}/></Box>
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
 
-            <a href="https://statueofequality.org/register/" style={{...styles.aTag, position : 'absolute',top:isSmallScreen ? '6.7%': '6.8%',left:isSmallScreen ? '20%':'21%' }}>
-                <Box sx={styles.register} >REGISTER TO PARTICIPATE</Box>
+            <a href="https://statueofequality.org/register/" style={{...styles.aTag}}>
+                <Button  sx={{...styles.register,marginTop : '120%'}}  >REGISTER TO PARTICIPATE</Button>
             </a>
 
           <Box sx={{...marginTop}}>
@@ -405,11 +396,11 @@ const Theme7 = (props) => {
 
           <div style={{display : 'flex' , justifyContent : 'center'}}><p style={styles.underline}></p></div>
           
-          <DonationBox>
-            <a href="https://donations.divyasaketham.org/product-category/samatha-kumbh-2024/" style={{textDecoration : 'none', color : 'white',textWrap : 'nowrap'}}>
-                PARTICIPATE FOR DONATION
+            <a href="https://donations.divyasaketham.org/product-category/samatha-kumbh-2024/" style={{textDecoration : 'none', color : 'white',textWrap : 'nowrap',margin : 'auto'}}>
+            <Button variant="contained" sx={{boxShadow : '0 2px 4px black',fontWeight : '600'}}>
+                  PARTICIPATE FOR DONATION
+            </Button>
             </a>
-          </DonationBox>
 
           <Grid container spacing={3} sx={isSmallScreen && mobileStyles.gridNav}>
             <Grid item xs={4} md={4}>
@@ -477,9 +468,9 @@ const Theme7 = (props) => {
           <Box sx={{marginBlock : '5vh '}}>
           <HeaderBox style={styles.headerUnderline}>SAMATHA KUMB 2024 INVITATION LINKS :</HeaderBox>
           <Stack sx={{ maxWidth : '300px',margin : 'auto',padding : '10px'}}>
-            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/02/Samatha-Kumbh-2024-FEB-20-MAR-1.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In English</a></Button>
-            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Telugu.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Telugu</a></Button>
-            <Button variant="contained"  sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Hindi.pdf" target="_blank" style={{...styles.aTag , color : '#EC6C02'}}>Invitation In Hindhi</a></Button>
+            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/02/Samatha-Kumbh-2024-FEB-20-MAR-1.pdf" target="_blank" style={{...styles.aTag , color : 'white'}}>Invitation In English</a></Button>
+            <Button variant="contained" sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Telugu.pdf" target="_blank" style={{...styles.aTag , color : 'white'}}>Invitation In Telugu</a></Button>
+            <Button variant="contained"  sx={styles.invitation}><MdPictureAsPdf /><a href="https://statueofequality.org/wp-content/uploads/2024/01/Samatha_Kumb_Hindi.pdf" target="_blank" style={{...styles.aTag , color : 'white'}}>Invitation In Hindhi</a></Button>
           </Stack>
          </Box>
 
@@ -632,7 +623,7 @@ const Theme7 = (props) => {
           </Box>
           
           <a href="https://samaroham.divyasaketham.org/" style={{margin : 'auto'}}>
-          <Button  variant="outlined" sx={{marginBlock : '20px'}}>Book Entry Pass</Button>
+          <Button  variant="contained" sx={{marginBlock : '20px',boxShadow : '0 2px 4px black',fontWeight : '600'}}>Book Entry Pass</Button>
           </a>
           {/* <Dialog onClose={handleClose} open={open}>
             <Box sx={styles.closeIcon} onClick={handleClose}><IoCloseOutline/></Box>
@@ -681,7 +672,7 @@ const Theme7 = (props) => {
               <img src="https://lh3.googleusercontent.com/pw/ABLVV86VZB1KL46gvex_DOlpAo7XwcH6psHd0uNmaAFj8LGxFjOyeewnRe5I9tVaSe-NfUuZTKcGjwQ6NkF3gggZ0DxG8Y1IXtUb2PdvCs9egNHsnXPF_KOl3eqMs3CtlXH704WJsg4ptg-lgsgw65xHiNXd=w1498-h913-s-no-gm?authuser=0" alt="" width={'100%'} />
             </Box>
             <ButtonTypeBox style={{ display : 'flex' , justifyContent : 'center'}}>
-              <a href="https://photos.google.com/share/AF1QipPIVt-ErJmzOcXsQfnJhHH0gZj0Y8CvWRqifwuxOzcIawIFyijfPa55B0KcVLREfQ?pli=1&key=MW1jNWNPVERzaDdTekZGT0Rwa0o2VUFuUjVELWtn" target="_blank" style={{...styles.aTag , color : '#F4C5C9' }}>More To See</a>
+              <a href="https://photos.google.com/share/AF1QipPIVt-ErJmzOcXsQfnJhHH0gZj0Y8CvWRqifwuxOzcIawIFyijfPa55B0KcVLREfQ?pli=1&key=MW1jNWNPVERzaDdTekZGT0Rwa0o2VUFuUjVELWtn" target="_blank" style={{...styles.aTag , color : '#F4C5C9' }}>VIEW MORE GALLERY</a>
             </ButtonTypeBox> 
           </Box>
 
@@ -710,8 +701,10 @@ const Theme7 = (props) => {
             </Box>
           </Box>
           
-        </UserCard>
-      </Box> 
+          </UserCard>
+          </Box>
+        </Box>
+     
       
   </>)
 }

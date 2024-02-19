@@ -85,3 +85,10 @@ b {
 .css-9pgt8r-MuiPaper-root {
   display: none !important;
 }
+.css-xwc0jx-MuiPaper-root{
+  padding: 46px !important;
+}
+
+.css-0{
+  width: -webkit-fill-available !important;
+}
