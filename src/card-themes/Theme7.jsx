@@ -136,19 +136,6 @@ const HeaderBox = styled(Box)(()=>({
 }))
 
 
-const DonationBox = styled(Box)(()=>({
-  background : '#B02020',
-  padding :'10px',
-  fontSize : '18px',
-  color : 'white',
-  borderRadius : '8px',
-  display : 'flex',
-  justifyContent : 'center',
-  maxWidth : 'fit-content',
-  margin : 'auto'
-}))
-
-
 
 
 
@@ -234,10 +221,8 @@ let styles = {
      padding : '12px',
      boxShadow : '0 2px 4px black',
      width : 'fit-content',
-     top : '50%',
-     left : '50%',
-     transform : 'translate(-50%,-50%)',
-     fontWeight : '600'
+     fontWeight : '600',
+     
    }
  
  }
@@ -319,8 +304,8 @@ const Theme7 = (props) => {
                 <p style={isSmallScreen ? mobileStyles.underline:styles.underline}></p>
             </ProfileDiv>
 
-            <a href="https://statueofequality.org/register/" style={{...styles.aTag}}>
-                <Button  sx={{...styles.register,marginTop : '120%'}}  >REGISTER TO PARTICIPATE</Button>
+            <a href="https://statueofequality.org/register/" style={{...styles.aTag,paddingTop:'100%',margin:'auto'}}>
+                <Button  sx={{...styles.register}}  >REGISTER TO PARTICIPATE</Button>
             </a>
 
            <Box sx={{...marginTop}}>
