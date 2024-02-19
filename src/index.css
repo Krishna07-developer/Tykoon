@@ -94,5 +94,5 @@ b {
 }
 
 .css-mhc70k-MuiGrid-root>.MuiGrid-item {
-  padding-left: 21%;
+  padding-left: 21% !important;
 }

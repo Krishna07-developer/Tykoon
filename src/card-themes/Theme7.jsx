@@ -507,7 +507,7 @@ const Theme7 = (props) => {
             <HeaderBox style={styles.headerUnderline} id="gallery">PHOTO GALLERY :</HeaderBox>
             <Box>
               <h4>SAMATHA KUMBH 2023 HIGHLIGHTS :-</h4>
-              <Grid container spacing={2}>
+              <Grid container spacing={2} >
                 <Grid item xs={12} md={6}>
                   <Box sx={styles.photoGalleryImg}>
                       <a href="https://photos.google.com/share/AF1QipOLSvYvhOFSJqoOZ9UTgJeBR64znkszaw2qP9VkR92AYVQVEImPG50CGjRwt0ylTQ?key=QTdGWHhKV0IwNUtlN1UweVJ3ZlRqZ3lpelZDeVpR" target="_blank" style={styles.photoGalleryImg}>
