@@ -1,4 +1,4 @@
-import { Button, Box, Paper, Grid,  useMediaQuery, Stack, } from '@mui/material'
+import { Button, Box, Paper, Grid,  useMediaQuery, Stack, Dialog, TextField, Card, } from '@mui/material'
 import { FaUserTie } from "react-icons/fa";
 import { LiaIndustrySolid } from "react-icons/lia";
 import { LuStore } from "react-icons/lu";
@@ -22,7 +22,9 @@ import Instagram from "../assets/instagram.png"
 import Website from "../assets/websiteIcon.png"
 import Call from "../assets/callIcon.png"
 import Email from "../assets/mail.png"
-
+import { useForm } from "react-hook-form"
+import { IoCloseOutline } from "react-icons/io5";
+import {addNewContact} from "../api"
 
 
 
@@ -136,6 +138,11 @@ const HeaderBox = styled(Box)(()=>({
   fontWeight : '700'
 }))
 
+
+const FormCard = styled(Card)(() => ({
+  padding: "20px",
+  maxWidth: '400px'
+}))
 
 
 
@@ -280,16 +287,39 @@ function handleScroll(event) {
 
 
 
-const Theme7 = (props) => {
 
+
+const Theme7 = (props) => {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const isSmallScreen = useMediaQuery('(max-width : 600px)')
   const [minTimeout, setMinTimeout] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => { setOpen(false) };
 
   useEffect(() => {
     setTimeout(() => {
       setMinTimeout(true)
     }, 2000)
+
+    setOpen(true)
   }, [])
+
+  const onFormSubmit = (data) => {
+    const apiParams = {
+      name: data.Name,
+      mobileNo: data.MobileNumber,
+      adtype: 'Participate Kumbh'
+    }
+    addNewContact(apiParams)
+    setTimeout(() => {
+      reset();
+      setSubmitted(true)
+      setOpen(false)
+    }, 1000)
+    
+  }
 
   const marginTop = {
     marginTop : isSmallScreen ?  '1vh': '5vh'
@@ -297,9 +327,52 @@ const Theme7 = (props) => {
 
 
   return (<>  
-        
            
           <UserCard>
+            
+          <Dialog
+                  open={open}
+                  onClose={handleClose} >
+                  <IoCloseOutline style={{fontSize:'28px',position:'absolute',right:'10px'}} onClick={handleClose}/>
+                  <FormCard>
+                    <h3>Register</h3>
+                    <form onSubmit={handleSubmit(onFormSubmit)}>
+                      <Box mb={3}>
+                        <TextField
+                          placeholder="Enter Name"
+                          label='Name'
+                          variant="outlined"
+                          name="Name"
+                          fullWidth
+                          {...register("Name", {
+                            required: "Required field"
+                          })}
+                          error={Boolean(errors?.Name)}
+                          helperText={errors?.Name?.message}
+                        />
+                      </Box>
+
+                      <Box mb={3}>
+                        <TextField
+                          placeholder="Enter Mobile Number"
+                          label='Mobile Number'
+                          variant="outlined"
+                          name="MobileNumber"
+                          fullWidth
+                          {...register("MobileNumber", {
+                            required: "Required field"
+                          })}
+                          error={Boolean(errors?.MobileNumber)}
+                          helperText={errors?.MobileNumber?.message}
+                        />
+                      </Box>
+                      <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginBottom: '25px', marginTop: '25px', marginInline: 'auto' }}>
+                        Register
+                      </Button>
+                    </form>
+                  </FormCard>
+                </Dialog>
+
 
             <ProfileDiv>
                 <Box><img src={JeeyarSwami} alt="" width={'100%'}/></Box>
@@ -319,49 +392,49 @@ const Theme7 = (props) => {
           <Grid container>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://wa.me/919281079474?text=Hi"><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
+                <a href="https://wa.me/919281079474?text=Hi" target='_blank'><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
                 WHATSAPP
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="tel:/7901422022"><img src={Call} alt=""  style={styles.imgWidth}/></a>
+                <a href="tel:/7901422022" target='_blank'><img src={Call} alt=""  style={styles.imgWidth}/></a>
                 CALL
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="mailto:contact@statueofequality.org"><img src={Email} alt=""  style={styles.imgWidth}/></a>
+                <a href="mailto:contact@statueofequality.org" target='_blank'><img src={Email} alt=""  style={styles.imgWidth}/></a>
                 EMAIL
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://www.facebook.com/statueofequality"><img src={Facebook} alt=""  style={styles.imgWidth}/></a>
+                <a href="https://www.facebook.com/statueofequality" target='_blank'><img src={Facebook} alt=""  style={styles.imgWidth}/></a>
                 FACEBOOK
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://twitter.com/StatueEquality"><img src={Twitter} alt=""  style={styles.imgWidth}/></a>
+                <a href="https://twitter.com/StatueEquality" target='_blank'><img src={Twitter} alt=""  style={styles.imgWidth}/></a>
                 TWITTER
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://www.instagram.com/statue_of_equality/"><img src={Instagram} alt=""  style={styles.imgWidth}/></a>
+                <a href="https://www.instagram.com/statue_of_equality/" target='_blank'><img src={Instagram} alt=""  style={styles.imgWidth}/></a>
                 INSTAGRAM
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://statueofequality.org/"><img src={Website} alt="" style={styles.imgWidth}/></a>
+                <a href="https://statueofequality.org/" target='_blank'><img src={Website} alt="" style={styles.imgWidth}/></a>
                 WEBSITE
               </NavBox>
             </Grid>
             <Grid item xs={3}>
               <NavBox>
-                <a href="https://www.youtube.com/@Statueofequality"><img src={Youtube} alt="" style={styles.imgWidth}/></a>
+                <a href="https://www.youtube.com/@Statueofequality" target='_blank'><img src={Youtube} alt="" style={styles.imgWidth}/></a>
                 YOUTUBE
               </NavBox>
             </Grid>
@@ -369,13 +442,13 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <a href="https://www.facebook.com/jeeyarswamy" style={{textDecoration : 'none'}}>
+            <a href="https://www.facebook.com/jeeyarswamy" target='_blank' style={{textDecoration : 'none'}}>
             <ButtonTypeBox>
               Facebook Page
               <img src={Facebook} alt="" style={{width : '50px'}}/>
             </ButtonTypeBox>
             </a>
-              <a href="https://t.me/+gnJOlvrMHK0zZGVl" style={{textDecoration : 'none'}}>
+              <a href="https://t.me/+gnJOlvrMHK0zZGVl" target='_blank' style={{textDecoration : 'none'}}>
               <ButtonTypeBox>
                 Telegram Page
                 <img src={Telegram} alt="" style={{width : '50px'}}/>
