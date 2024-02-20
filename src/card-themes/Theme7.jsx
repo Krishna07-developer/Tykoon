@@ -25,6 +25,7 @@ import Email from "../assets/mail.png"
 import { useForm } from "react-hook-form"
 import { IoCloseOutline } from "react-icons/io5";
 import {addNewContact} from "../api"
+import TickMark from "../assets/tickmark.png"
 
 
 
@@ -316,7 +317,7 @@ const Theme7 = (props) => {
     setTimeout(() => {
       reset();
       setSubmitted(true)
-      setOpen(false)
+      // setOpen(false)
     }, 1000)
     
   }
@@ -330,12 +331,24 @@ const Theme7 = (props) => {
            
           <UserCard>
             
-          <Dialog
+          {submitted ?
+            <Dialog
+                  open={open}
+                  onClose={handleClose}>
+                  <Stack sx={{padding:'30px', textAlign:'center', alignItems:'center'}}>
+                    <img src={TickMark} width={100} />
+                    <Box sx={{fontFamily:'ptr', color:'gray'}}>'Thank you for showing your interest !'</Box>
+                    <Box sx={{ marginTop:'10px'}}>You will recieve a confirmation text for your registered mobile number.</Box>
+                    <Button variant='outlined' onClick={handleClose} sx={{marginTop:'10px'}} >Close</Button>
+                  </Stack>
+            </Dialog>
+            :
+            <Dialog
                   open={open}
                   onClose={handleClose} >
-                  <IoCloseOutline style={{fontSize:'28px',position:'absolute',right:'10px'}} onClick={handleClose}/>
+                  <IoCloseOutline style={{fontSize :'28px',position:'absolute',right:'10px',cursor:'pointer'}} onClick={handleClose}/>
                   <FormCard>
-                    <h3>Register</h3>
+                    <h3>Register For participate</h3>
                     <form onSubmit={handleSubmit(onFormSubmit)}>
                       <Box mb={3}>
                         <TextField
@@ -372,6 +385,7 @@ const Theme7 = (props) => {
                     </form>
                   </FormCard>
                 </Dialog>
+              }
 
 
             <ProfileDiv>
