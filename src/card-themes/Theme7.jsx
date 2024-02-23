@@ -26,7 +26,8 @@ import { useForm } from "react-hook-form"
 import { IoCloseOutline } from "react-icons/io5";
 import {addNewContact} from "../api"
 import TickMark from "../assets/tickmark.png"
-
+import { initializeApp } from "firebase/app";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 
 
@@ -278,6 +279,7 @@ function handleScroll(event) {
   event.preventDefault();
   const targetId = event.currentTarget.getAttribute("href");
   const targetElement = document.querySelector(targetId);
+  
 
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: "smooth" })
@@ -298,6 +300,7 @@ const Theme7 = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => { setOpen(false) };
+  const [analytics , setAnalytics] = useState(null)
 
   useEffect(() => {
     setTimeout(() => {
@@ -313,18 +316,79 @@ const Theme7 = (props) => {
       mobileNo: data.MobileNumber,
       adtype: 'Participate Kumbh'
     }
-    addNewContact(apiParams)
-    setTimeout(() => {
-      reset();
-      setSubmitted(true)
-      // setOpen(false)
-    }, 1000)
+    // addNewContact(apiParams)
+    // setTimeout(() => {
+    //   reset();
+    //   setSubmitted(true)
+    //   // setOpen(false)
+    // }, 1000)
     
   }
+
+  useEffect(()=>{
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOos_Y37rF6v-DRugmBOsrPSCXrSB3BiU",
+      authDomain: "tykooncard.firebaseapp.com",
+      projectId: "tykooncard",
+      storageBucket: "tykooncard.appspot.com",
+      messagingSenderId: "931057095645",
+      appId: "1:931057095645:web:cf66c9fcc4c58c551bdc34",
+      measurementId: "G-BR84BY8ZZ7"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analyticsInstance = getAnalytics(app);
+    setAnalytics(analyticsInstance)
+  },[])
 
   const marginTop = {
     marginTop : isSmallScreen ?  '1vh': '5vh'
   }
+
+  const socialMediaIcons = [
+    {
+      name : 'Whatsapp',
+      icon : Whatsup,
+      href : 'https://wa.me/919281079474?text=Hi'
+    },
+    {
+      name : 'Call',
+      icon : Call,
+      href : 'tel:/7901422022'
+    },
+    {
+      name : 'Gmail',
+      icon : Email,
+      href : 'mailto:contact@statueofequality.org'
+    },
+    {
+      name : 'FaceBook',
+      icon : Facebook,
+      href : 'https://www.facebook.com/statueofequality'
+    },
+    {
+      name : 'Twitter',
+      icon : Twitter,
+      href : 'https://twitter.com/StatueEquality'
+    },
+    {
+      name : 'Instagram',
+      icon : Instagram,
+      href : 'https://www.instagram.com/statue_of_equality/'
+    },
+    {
+      name : 'Website',
+      icon : Website,
+      href : 'https://statueofequality.org/'
+    },
+    {
+      name : 'Youtube',
+      icon : Youtube,
+      href : 'https://www.youtube.com/@Statueofequality'
+    },
+
+  ]
+
 
 
   return (<>  
@@ -404,7 +468,18 @@ const Theme7 = (props) => {
            <Box sx={{...marginTop}}>
           <h4 id="socialMedia">FOLLOW US ON</h4>
           <Grid container>
-            <Grid item xs={3}>
+            {
+              socialMediaIcons.map((eachItem)=>{
+                return <Grid item xs={3}>
+                <NavBox>
+                    <a href={eachItem.href} target='_blank'><img src={eachItem.icon} alt="" style={styles.imgWidth} onClick={()=>{logEvent(analytics, `${eachItem.name}ClickedCount`)}}/></a>
+                    {eachItem.name}
+                </NavBox>
+              </Grid>
+              })
+              
+            }
+            {/* <Grid item xs={3}>
               <NavBox>
                 <a href="https://wa.me/919281079474?text=Hi" target='_blank'><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
                 WHATSAPP
@@ -421,8 +496,8 @@ const Theme7 = (props) => {
                 <a href="mailto:contact@statueofequality.org" target='_blank'><img src={Email} alt=""  style={styles.imgWidth}/></a>
                 EMAIL
               </NavBox>
-            </Grid>
-            <Grid item xs={3}>
+            </Grid> */}
+            {/* <Grid item xs={3}>
               <NavBox>
                 <a href="https://www.facebook.com/statueofequality" target='_blank'><img src={Facebook} alt=""  style={styles.imgWidth}/></a>
                 FACEBOOK
@@ -451,7 +526,7 @@ const Theme7 = (props) => {
                 <a href="https://www.youtube.com/@Statueofequality" target='_blank'><img src={Youtube} alt="" style={styles.imgWidth}/></a>
                 YOUTUBE
               </NavBox>
-            </Grid>
+            </Grid> */}
           </Grid>
           </Box>
 
