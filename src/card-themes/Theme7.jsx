@@ -523,13 +523,13 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <a href="https://statueofequality.org/home/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `StatueOfEquality${eachIcon.name}ClickedCount`)}}>
+            <a href="https://statueofequality.org/home/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `StatueOfEqualityWebsiteClickedCount`)}}>
             <ButtonTypeBox>
               Statue Of Equality Website
               <img src={Website} alt="" style={{width : '70px'}}/>
             </ButtonTypeBox>
             </a>
-              <a href="https://chinnajeeyar.org/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `JeeyarSwamy${eachIcon.name}ClickedCount`)}}>
+              <a href="https://chinnajeeyar.org/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `JeeyarSwamyWebsiteClickedCount`)}}>
               <ButtonTypeBox>
                 Jeeyar Swamy Website
                 <img src={Website} alt="" style={{width : '70px'}}/>
