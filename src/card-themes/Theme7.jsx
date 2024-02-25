@@ -491,7 +491,7 @@ const Theme7 = (props) => {
             
 
            <Box sx={{...marginTop}}>
-          <h4 id="socialMedia">FOLLOW US ON</h4>
+          <h4 id="socialMedia">FOLLOW STATUEOFEQUALITY!</h4>
           <Grid container>
             {
               socialMediaIcons.map((eachItem)=>{
