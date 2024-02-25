@@ -362,14 +362,14 @@ const Theme7 = (props) => {
       href : 'mailto:contact@statueofequality.org'
     },
     {
+      name : 'Youtube',
+      icon : Youtube,
+      href : 'https://www.youtube.com/@Statueofequality'
+    },
+    {
       name : 'FaceBook',
       icon : Facebook,
       href : 'https://www.facebook.com/statueofequality'
-    },
-    {
-      name : 'Twitter',
-      icon : Twitter,
-      href : 'https://twitter.com/StatueEquality'
     },
     {
       name : 'Instagram',
@@ -377,16 +377,41 @@ const Theme7 = (props) => {
       href : 'https://www.instagram.com/statue_of_equality/'
     },
     {
-      name : 'Website',
-      icon : Website,
-      href : 'https://statueofequality.org/'
+      name : 'Twitter',
+      icon : Twitter,
+      href : 'https://twitter.com/StatueEquality'
+    },
+    
+    {
+      name : 'Telegram',
+      icon : Telegram,
+      href : 'https://t.me/+gnJOlvrMHK0zZGVl'
+    },
+    
+
+  ]
+
+  const jeeyarSwamySocialMedias = [
+    {
+      name : 'Facebook',
+      icon : Facebook,
+      href : 'https://www.facebook.com/jeeyarswamy'
+    },
+    {
+      name : 'Instagram',
+      icon : Instagram,
+      href : 'https://www.instagram.com/jeeyarswamy/'
+    },
+    {
+      name : 'Twitter',
+      icon : Twitter,
+      href : 'https://twitter.com/HHCHINNAJEEYAR'
     },
     {
       name : 'Youtube',
       icon : Youtube,
-      href : 'https://www.youtube.com/@Statueofequality'
-    },
-
+      href : 'https://www.youtube.com/user/jetworld'
+    }
   ]
 
 
@@ -479,68 +504,35 @@ const Theme7 = (props) => {
               })
               
             }
-            {/* <Grid item xs={3}>
-              <NavBox>
-                <a href="https://wa.me/919281079474?text=Hi" target='_blank'><img src={Whatsup} alt=""  style={styles.imgWidth}/></a>
-                WHATSAPP
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="tel:/7901422022" target='_blank'><img src={Call} alt=""  style={styles.imgWidth}/></a>
-                CALL
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="mailto:contact@statueofequality.org" target='_blank'><img src={Email} alt=""  style={styles.imgWidth}/></a>
-                EMAIL
-              </NavBox>
-            </Grid> */}
-            {/* <Grid item xs={3}>
-              <NavBox>
-                <a href="https://www.facebook.com/statueofequality" target='_blank'><img src={Facebook} alt=""  style={styles.imgWidth}/></a>
-                FACEBOOK
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="https://twitter.com/StatueEquality" target='_blank'><img src={Twitter} alt=""  style={styles.imgWidth}/></a>
-                TWITTER
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="https://www.instagram.com/statue_of_equality/" target='_blank'><img src={Instagram} alt=""  style={styles.imgWidth}/></a>
-                INSTAGRAM
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="https://statueofequality.org/" target='_blank'><img src={Website} alt="" style={styles.imgWidth}/></a>
-                WEBSITE
-              </NavBox>
-            </Grid>
-            <Grid item xs={3}>
-              <NavBox>
-                <a href="https://www.youtube.com/@Statueofequality" target='_blank'><img src={Youtube} alt="" style={styles.imgWidth}/></a>
-                YOUTUBE
-              </NavBox>
-            </Grid> */}
           </Grid>
+          </Box>
+          <Box>
+            <h4>FOLLOW CHINNAJEEYARSWAMY!</h4>
+            <Grid container>
+              {
+                jeeyarSwamySocialMedias.map((eachIcon)=>{
+                  return <Grid item xs={3}>
+                    <NavBox>
+                      <a href={eachIcon.href} target='_blank'><img src={eachIcon.icon} alt='' style={styles.imgWidth} onClick={()=>{logEvent(analytics, `${eachIcon.name}ClickedCount`)}}/></a>
+                      {eachIcon.name}
+                    </NavBox>
+                  </Grid>
+                })
+              }
+            </Grid>
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <a href="https://www.facebook.com/jeeyarswamy" target='_blank' style={{textDecoration : 'none'}}>
+            <a href="https://statueofequality.org/home/" target='_blank' style={{textDecoration : 'none'}}>
             <ButtonTypeBox>
-              Facebook Page
-              <img src={Facebook} alt="" style={{width : '50px'}}/>
+              Statue Of Equality Website
+              <img src={Website} alt="" style={{width : '70px'}}/>
             </ButtonTypeBox>
             </a>
-              <a href="https://t.me/+gnJOlvrMHK0zZGVl" target='_blank' style={{textDecoration : 'none'}}>
+              <a href="https://chinnajeeyar.org/" target='_blank' style={{textDecoration : 'none'}}>
               <ButtonTypeBox>
-                Telegram Page
-                <img src={Telegram} alt="" style={{width : '50px'}}/>
+                Jeeyar Swamy Website
+                <img src={Website} alt="" style={{width : '70px'}}/>
               </ButtonTypeBox>
               </a>
           </Box>
