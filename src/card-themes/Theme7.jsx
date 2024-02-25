@@ -513,7 +513,7 @@ const Theme7 = (props) => {
                 jeeyarSwamySocialMedias.map((eachIcon)=>{
                   return <Grid item xs={3}>
                     <NavBox>
-                      <a href={eachIcon.href} target='_blank'><img src={eachIcon.icon} alt='' style={styles.imgWidth} onClick={()=>{logEvent(analytics, `${eachIcon.name}ClickedCount`)}}/></a>
+                      <a href={eachIcon.href} target='_blank'><img src={eachIcon.icon} alt='' style={styles.imgWidth} onClick={()=>{logEvent(analytics, `JeeyarSwamy${eachIcon.name}ClickedCount`)}}/></a>
                       {eachIcon.name}
                     </NavBox>
                   </Grid>
@@ -523,13 +523,13 @@ const Theme7 = (props) => {
           </Box>
 
           <Box sx={{display : 'flex', justifyContent : 'space-around' , marginBlock : '10px'}}>
-            <a href="https://statueofequality.org/home/" target='_blank' style={{textDecoration : 'none'}}>
+            <a href="https://statueofequality.org/home/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `StatueOfEquality${eachIcon.name}ClickedCount`)}}>
             <ButtonTypeBox>
               Statue Of Equality Website
               <img src={Website} alt="" style={{width : '70px'}}/>
             </ButtonTypeBox>
             </a>
-              <a href="https://chinnajeeyar.org/" target='_blank' style={{textDecoration : 'none'}}>
+              <a href="https://chinnajeeyar.org/" target='_blank' style={{textDecoration : 'none'}} onClick={()=>{logEvent(analytics, `JeeyarSwamy${eachIcon.name}ClickedCount`)}}>
               <ButtonTypeBox>
                 Jeeyar Swamy Website
                 <img src={Website} alt="" style={{width : '70px'}}/>
